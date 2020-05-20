@@ -1,0 +1,85 @@
+cls = clear
+
+dir is ls for windows. It means directory.
+
+If you write dir then itll show you all the things in that directory.
+
+-a is to find hidden files.
+
+cd ~/desktop thats how you go into a folder
+
+mkdir is make a new folder
+
+cd means change directory
+
+c:/ means root. so if you did cd c:/ itll take you back to the root of your computer
+
+Code is to make a new file.
+
+cd.. is to go back a directory.
+
+ren means rename
+
+del means delete
+
+rm -rf * is to delete your whole computer permanently. Or its del -rf *.
+
+-rf basically means force
+
+code is to open visual studio code
+
+more then a file name will show you what is written in that file.
+
+echo is to add or replace something in a file. To do it write, echo "the content you are replacing or adding to it" > your_file.rb. that will replace your files content with the new content. but if you give it two > instead of one itll just add to what is already there. echo "content" >> my_file.rb
+
+copy means copy. To do this write copy the_file_your_coping.rb then write the new name of the new file you copied. 
+
+git init allows you to use git.
+
+git status gits the status of the folder your in.
+
+git push pushis my file onto git hub.
+
+git add . makes your files ready to be commited or commits them. I actually still don't know.
+
+When in dout use git status.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
