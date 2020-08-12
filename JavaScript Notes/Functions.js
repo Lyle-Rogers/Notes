@@ -232,16 +232,147 @@ try {
 }
 
 
+<!-- How to Build a Character Countdown Function. Query selectors. Conditianals. -->
+// <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <title></title>
+// </head>
+// <body>
+//   <input type="text" class="msgInput">
+
+//   <div>
+//       Characters left <span class="msgCounter">20</span>
+//   </div>
+// </body>
+// <script>
+//     const msgInput = document.querySelector('.msgInput');
+//     const msgCounter = document.querySelector('.msgCounter');
+//     const max = 20;
+//     const ensureContentLength = (content, max) => {
+//         if (content.length > max) {
+//             return false;
+//         } else {
+//             return true;
+//         }
+//     }
+
+//     msgInput.onkeyup = function() {
+//         msgCounter.innerHTML = max -this.value.length;
+
+//         if (!ensureContentLength(this.value, (max - 1))) {
+//             msgInput.disabled = true;
+//         }
+//     }
+// </script>
+// </html>
 
 
+{/* <!-- How to make our text count function be abled to be called whenever we want with whatever text input we want and set our own max count to whatever we want. Guide to Building Shared Behavior with JavaScript Functions -->
+// <!DOCTYPE html>
+// <html lang='en'>
+// <head>
+//   <meta charset='UTF-8'>
+//   <title></title>
+// </head>
+// <body>
+//   <input type="text" class="msgInput">
+
+//   <div>
+//     Characters left <span class="msgCounter"></span>
+//   </div>
+
+//   <hr>
+
+//   <input type="text" class="tags">
+
+//   <div>
+//     Characters left <span class="tagsCounter"></span>
+//   </div>
+// </body>
+
+// <script>
+//   const getCurrentContentLength = (content, max) => {
+//     const maxLength = max;
+//     if (content.length > maxLength) {
+//       return false;
+//     } else {
+//       return true;
+//     }
+//   }
+//   const msgInput = document.querySelector('.msgInput');
+//   const msgCounter = document.querySelector('.msgCounter');
+//   const tagsInput = document.querySelector('.tags');
+//   const tagsCounter = document.querySelector('.tagsCounter');
+
+//   // Nope
+//   // msgInput.addEventListener('keyup', (e) => {
+//   //   console.log(e);
+//   // });
+
+//   const textFieldLengthValidator = (textField, counter, maxCount) => {
+//     textField.onkeyup = function() {
+//        counter.innerHTML = maxCount - this.value.length;
+
+//         if(!getCurrentContentLength(this.value, (maxCount - 1))) {
+//             textField.disabled = true;
+//         }
+//     }
+//   }
+
+//   textFieldLengthValidator(msgInput, msgCounter, 144);
+//   textFieldLengthValidator(tagsInput, tagsCounter, 42);
+// </script>
+// </html>
 
 
+<!-- Guide to Removing HTML Elements with JavaScript -->
+<body>
+  <div class="widget">
+    <input type="text" id="chat-input">
+    <button id="msgBtn" onclick="sendMessage()">Submit</button>
+    <button onclick="clearMessages()">Clear Messages</button>
+    <div class="chat-wrapper"></div>
+  </div>
+</body>  */}
+
+{/* <script>
+  function sendMessage() {
+    const newDiv = document.createElement("div");
+    newDiv.classList.add('chatMsg');
+    let chatInput = document.querySelector('#chat-input').value;
+    const newContent = document.createTextNode(chatInput);
+    newDiv.appendChild(newContent);
+    const widget = document.querySelector(".widget");
+    let chatWrapper = document.querySelector("chat-wrapper");
+    document.querySelector('#chat-input').value = '';
+    if (document.querySelectorAll('.chatMsg').length > 0) {
+      chatWrapper = document.querySelectorAll('.chatMsg')[0];
+    }
+    widget.insertBefore(newDiv, chatWrapper);
+  }
+  // This function makes a  button and every time you click the button it removes all the html that was added
+  function clearMessages() {
+    const messages = document.querySelectorAll('.chatMsg');
+    messages.forEach(el => el.remove());
+  }
+</script>
+
+</html> */}
 
 
+// How to create a capitalize function. 
+const toCapital = str => {
+  const words = str.split(" ");
+  return words.map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+}
 
+const shortStr = "Hi there";
+const longStr = "The dead brown fox jumped over the gay fucked dog!"
 
-
-
+console.log(toCapital(longStr));
+console.log(toCapital(shortStr));
 
 
 

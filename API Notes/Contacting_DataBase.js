@@ -1,3 +1,4 @@
+// db means data base
 // Guide to Creating a MongoDB Database Along with Admin Database Users
 db.createUser({
   user: 'jordan',
@@ -64,7 +65,7 @@ db.books.find(
     {
         name: "Confident Ruby" // This is the object in the collection it is finding
     },
-    {    // This is how to select specific things to return inside of an object. 1 is simular to true saying to return it and 0 is saying not to return in. If you dont select it and put 0 or 1 it will automatically not return it.
+    {    // This is how to select specific things to return inside of an object. 1 is simular to true saying to return it and 0 is saying not to return it. If you dont select it and put 0 or 1 it will automatically not return it.
         _id: 0, // This id 0 is saying not to return the id.
         name: 1, // This name 1 is saying to return the name.
         authors: 1

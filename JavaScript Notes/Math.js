@@ -11,7 +11,7 @@
 20
 2 ** 10;   // to the power of
 1024
-5 % 2;  // magulas. You can check if a number is even or not by % by 2. 
+5 % 2;  // magulas. You can check if a number is even or not by % by 2. if it comes back 0, true, 1, false.
 1
 10 % 2
 0
@@ -57,7 +57,7 @@ someOtherNum;
 -10
 var strNum = '100';
 undefined
-var convertedNum = +strNum; //  + converts it from a string to a number somehow.
+var convertedNum = +strNum;
 undefined
 convertedNum;
 100
@@ -103,10 +103,10 @@ console.log(sum)
 
 // how to use the reduce function in a function and what fill does
 const toThePowerOf = (num, exp) => {
-    const items = Array(exp).fill(num); // fill s saying ther is exp amount of empty containers and you want it to fill each container with num items.
-    const reducer = (total, currentValue) => total * currentValue;
-    return items.reduce(reducer);
-  }
+  const items = Array(exp).fill(num); // fill s saying ther is exp amount of empty containers and you want it to fill each container with num items.
+  const reducer = (total, currentValue) => total * currentValue;
+  return items.reduce(reducer);
+}
   
   console.log(toThePowerOf(2, 3))
 

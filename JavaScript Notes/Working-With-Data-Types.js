@@ -21,7 +21,7 @@ str.concat(' again and again');
 "something again and again"
 
 
-// this is cool. the str = something and the rest is abvious
+// this is cool. the str = "something" and the rest is abvious
 str.includes('quick');
 false
 str;
@@ -40,7 +40,7 @@ var str = 'The quick brown fox jumped over the lazy dog';
 undefined
 str.repeat(5);
 "The quick brown fox jumped over the lazy dogThe quick brown fox jumped over the lazy dogThe quick brown fox jumped over the lazy dogThe quick brown fox jumped over the lazy dogThe quick brown fox jumped over the lazy dog"
-//that last sentance has every letter in the alfabet. Fuck that, never mind it was a lie. Jordan needs to get his shit together.
+//that last sentance has every letter in the alfabet. Fuck that, never mind it was a lie. Jordan needs to get his shit together. Me and Isaia have finally learned the trueth about life! Reality was a fucking lie! OmfG lol
 
 
 // to make a string ad '' or "" to what you want to be considered a string.
@@ -58,6 +58,7 @@ str;
 
 str.indexOf('jumped');
 20
+// indexOf found the index before jumped
 var str2 = str.concat(' again and again');
 undefined
 str2;
@@ -66,14 +67,15 @@ str2.indexOf('again');
 45
 str2.lastIndexOf('again');
 55
+// firstIndexOf found the first index of the first again. lastIndexOf found the last index of the second again
 
 
 // this is how you can slice something so that you can have your sentence cut and repeated
 str;
 "The quick brown fox jumped over the lazy dog"
-str.slice('10');
+str.slice('10');// beginning
 "brown fox jumped over the lazy dog"
-str.slice(-8);
+str.slice(-8);//end
 "lazy dog"
 str.slice(4, 10)
 "quick "
@@ -104,7 +106,7 @@ str.toLowerCase();
 "the quick brown fox jumped over the lazy dog"
 
 
-//  an array can store any items unlike a string
+//  An array can store any type of object
 var generatedArray = new Array('Altuve', 'Correa', 'Spring');
 // To pull obect out of an array write the arrays name, put [] after it and put the number of the item u want to pull out.
 generatedArray[0];
@@ -138,7 +140,7 @@ arr.unshift('kyle');
 arr;
 (3) ["kyle", "Bregmn", "Correa"]
 
-// if you dont put () at the end of a function it wont work
+// if you dont put () at the end of a function it wont fire up and activate
 
 // splice lets you take out whatever element you want in a array
 arr; //This is the array
@@ -149,7 +151,7 @@ arr;
 ["Altuve"]//now this is all thats left in the array
 
 
-// Its easiery and better to use string interpilation insted of complicated shit. You can place as many variables as you want i the curly brackets.
+// Its easiery and better to use string interpilation insted of complicated shit. You can place as many variables as you want in the curly brackets.
 const lyrics = 'Switchblades';
 console.log(`I love ${lyrics}`);
 
@@ -174,13 +176,43 @@ const orderTotals = [1, 5, 1, 10, 2, 3];
 console.log(Math.max(...orderTotals));
 
 
+// How to use console.table. This prints out a list of objects in the turminal as a table list. 
+const playerNames = [
+    { name: 'Altuve', pos: '2b' },
+    { name: 'Corea', pos: 'ss' },
+    { name: 'Bregman', pos: '3b' },
+  ]
 
 
+// Create an Array Popper that Alternates Returning from Each Side of an Array in JavaScript using a class.
+class ArrayPopper {
+    constructor(arr) {
+        this.arr = arr;
+        this.atBeginning = true;
+    }
+
+    togglePopper() {
+        this.atBeginning = !this.atBeginning;
+        return this.atBeginning ? this.arr.pop() : this.arr.shift();
+    }
+}
+
+const ap = new ArrayPopper([1, 2, 3, 4, 5]);
+
+ap.togglePopper()
 
 
+// How to create a capitalize function. 
+const toCapital = str => {
+    const words = str.split(" ");
+    return words.map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+}
 
+const shortStr = "Hi there";
+const longStr = "The dead brown fox jumped over the gay fucked dog!"
 
-
+console.log(toCapital(longStr));
+console.log(toCapital(shortStr));
 
 
 

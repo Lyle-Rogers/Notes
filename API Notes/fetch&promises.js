@@ -32,7 +32,7 @@ queryApis();
 
 // Implementing Error Handling In a JavaScript Async / Await Function and how to use the try operator.
 async function queryApis() {
-  try { //try makes it run both of these promises seperately
+  try { //try makes it run both of these promises seperately so that one can run before the other.
     const postsPromise = fetch('http://api.dailysmarty.com/posts');
     const posts = await postsPromise.then(res => res.json());
     console.log(posts);

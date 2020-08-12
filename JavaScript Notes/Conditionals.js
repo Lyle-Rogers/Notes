@@ -1,8 +1,7 @@
-// how make condicions
 var age = 12;
 var ageTwo = 12;
 
-if (age == ageTwo) {
+if (age == ageTwo) { // == this means is eqaul too. It doesn't matter if they are equal as a number or string .etc It just matters the the data is equal, not the object. 
   console.log('they are equal');
 }
 
@@ -67,14 +66,67 @@ console:
 "class=fuck this layout"
 
 
+// <!-- How to Build a Character Countdown Function. Query selectors. Conditianals. -->
+// <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <title></title>
+// </head>
+// <body>
+//   <input type="text" class="msgInput">
+
+//   <div>
+//       Characters left <span class="msgCounter">20</span>
+//   </div>
+// </body>
+// <script>
+//     const msgInput = document.querySelector('.msgInput');
+//     const msgCounter = document.querySelector('.msgCounter');
+//     const max = 20;
+//     const ensureContentLength = (content, max) => {
+//         if (content.length > max) {
+//             return false;
+//         } else {
+//             return true;
+//         }
+//     }
+
+//     msgInput.onkeyup = function() {
+//         msgCounter.innerHTML = max -this.value.length;
+
+//         if (!ensureContentLength(this.value, (max - 1))) {
+//             msgInput.disabled = true;
+//         }
+//     }
+// </script>
+// </html>
 
 
+// Create an Array Popper that Alternates Returning from Each Side of an Array in JavaScript using a class.
+class ArrayPopper {
+    constructor(arr) {
+        this.arr = arr;
+        this.atBeginning = true;
+    }
+
+    togglePopper() {
+        this.atBeginning = !this.atBeginning;
+        return this.atBeginning ? this.arr.pop() : this.arr.shift();
+    }
+}
+
+const ap = new ArrayPopper([1, 2, 3, 4, 5]);
+
+ap.togglePopper()
 
 
+// This is an if statement. ? means print this and : means if else.
+'asdg' === 'asdf' ? 'yay' : 'nay'
+console: "nay"
 
-
-
-
+'asdg' !== 'asdf' ? 'yay' : 'nay'
+console: "yay" 
 
 
 

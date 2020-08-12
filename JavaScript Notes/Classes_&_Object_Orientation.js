@@ -11,14 +11,14 @@ class Instructor {
 
 // Guide to JavaScript OOP Instance Methods
 class Instructor {
-constructor({ name, role = 'assistant' }) {
-    this.name = name;
-    this.role = role;
-}
+  constructor({ name, role = 'assistant' }) {
+      this.name = name;
+      this.role = role;
+  }
 
-renderDetails() {
-    console.log(`${this.name}: ${this.role}`)
-}
+  renderDetails() {
+      console.log(`${this.name}: ${this.role}`)
+  }
 }
 
 const jon = new Instructor({ name: 'Jon Snow'});
@@ -139,7 +139,22 @@ request.onload = function() {
 request.send(); // I think this sends information back and forth but idk.
 
 
+// Create an Array Popper that Alternates Returning from Each Side of an Array in JavaScript using a class.
+class ArrayPopper {
+  constructor(arr) {
+      this.arr = arr;
+      this.atBeginning = true;
+  }
 
+  togglePopper() {
+      this.atBeginning = !this.atBeginning;
+      return this.atBeginning ? this.arr.pop() : this.arr.shift();
+  }
+}
+
+const ap = new ArrayPopper([1, 2, 3, 4, 5]);
+
+ap.togglePopper()
 
 
 

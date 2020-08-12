@@ -25,9 +25,8 @@ console:
 
 
 // || means or
-// This is some how an argument lol
 function fullName(firstName, lastName, language) {
-    var language = language || 'English';//this is the argument
+    var language = language || 'English';//this is saying that if a language is not given, then English is the default.
     return lastName.toUpperCase() + ", " + firstName.toUpperCase() + " - " + language;
   }
   console.log(fullName('Jordan', 'Hudgens', 'Spanish'));
@@ -179,29 +178,73 @@ request.onload = function() {
 request.send(); // I think this sends information back and forth but idk.
 
 
-// Basic Guide to Importing and Exporting Code in JavaScript with ES6 Syntax
-export function multiply(numOne, numTwo) {  // made this variable an export by writing greeting before it. Now i can import it.
-  return numOne * numTwo
+// <!-- How to make camand short cuts with hot keays. With this you can make a hot key, like ctrl b, be able to do whatever you want. like you go to face book, put your small amount of code in the inspect console, then click ctrl b and fallow every one at once. You can make these control keys do whatever you want. In this specific code it creates a search bar and if you ctrl b it'll youll be able to type in the search bar without having to click on the search bar. -->
+// <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <title></title>
+// </head>
+// <body>
+    
+//     <input type="text" id="searchBar">
+
+// </body>
+
+// <script>
+//     const hotKeys = (e) => {
+//         let windowEvent = window.event ? event : e;
+
+//         if (windowEvent.keyCode === 66 && windowEvent.ctrlKey) {
+//             const searchBar = document.querySelector('#searchBar');
+//             searchBar.focus();
+//         }
+//     }
+
+//     document.onkeydown = hotKeys;
+// </script>
+// </html>
+
+
+// Random operator. Build a Weighted Lottery Function in JavaScript. 
+const weightedLottery = weights => {
+  let containerArray = [];
+  Object.keys(weights).forEach(key => {
+    for (let i = 0; i < weights[key]; i++) { // this saying to keep on going until every object has ran through and the amount left is 0.
+      containerArray.push(key);
+    }
+  });
+
+  return containerArray[(Math.random() * containerArray.length) | 0];// | means if not basically.
+};
+const weights = {
+  green: 1,
+  yellow: 2,
+  red: 3 // The higher the whight number is here, the more chances this object gets of being picked than the other object.
+};
+console.log(weightedLottery(weights)); // This returns a random key from they array weights. The key is the number after the objects in wheight.
+
+
+// You can console.log multiple things at once.
+const someObj = {
+  name: 'Kristine'
 }
-
-import { multiply } from './helper'; // The import. This is how you import something you created.
-
-console.log(multiply(2, 5));
+console.log('Hi', someObj, 'After object');
 
 
-// How to creat an export. Guide to Default Exports in JavaScript.
-export function multiply(numOne, numTwo) {
-  return numOne * numTwo;
-}
+// This is how to create an error console.log.
+console.error('oops');
 
-export const greeting = 'Hi there';
 
-// How to import your export.  
-import * as helper from './helper'; 
+// How to console.log a warning.
+console.warn('Something is about to go wrong');
 
-console.log(helper.greeting);
-console.log(helper.multiply(5, 6));
 
+// This dependency converts all your new modurn syntax so that other older browsers can read them.
+"babel-core": "^6.26.3"
+
+
+// A . before a file name means that the file is a hiden file
 
 
 

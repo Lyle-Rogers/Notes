@@ -35,7 +35,12 @@ function roadRage() {
 roadRage();
 
 
-
+ // How to use console.table. This prints out a list of objects in the turminal as a table list. 
+ const playerNames = [
+    { name: 'Altuve', pos: '2b' },
+    { name: 'Corea', pos: 'ss' },
+    { name: 'Bregman', pos: '3b' },
+  ]
 
 
 

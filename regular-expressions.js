@@ -12,3 +12,7 @@ null
 -1
 'foo 555-555-5555 is my number'.search(/((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/);
 4
+
+// This is a regular expression that brings back the query even though the full name of the query was not defined
+"name": "Deep Work: Rules for Focused Success in a Distracted World"// this is the full name
+db.books.findOne({ name: /.*deep work.*/i }) // deep work is part of the full name but the regular expression allowes it to work as well. db meands data base. db.books is an api call.

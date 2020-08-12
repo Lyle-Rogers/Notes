@@ -1,0 +1,376 @@
+<!-- Guide to JavaScript Event Listeners. When activated on a live server this will have to images and and when you haver over them it shows pops up some text.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        img {
+            width: 400px;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .show-img-overlay {
+            position: relative;
+            bottom: 60px;
+            font-size: 21xp;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .hide-img-overlay {
+            position: relative;
+            bottom: 60px;
+            font-size: 21px;
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/laptop.jpg" class="site-img" alt="Laptop">
+        <div class="hide-img-overlay">Image Description</div>
+      </div>
+    
+      <div class="container">
+        <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/another-laptop.jpg" class="site-img" alt="Laptop">
+        <div class="hide-img-overlay">Some Other Image Description</div>
+      </div>
+    
+</body>
+<script>
+    const imgs = document.querySelectorAll('.site-img');
+
+    imgs.forEach(img => {
+        img.addEventListener('mouseover', (event) => {
+            // This is selecting the text inside of the parent element
+            const captoinElement = event.target.parentElement.children[1];
+            captoinElement.className = 'show-img-overlay';
+        })
+    })
+
+    imgs.forEach(img => {
+        img.addEventListener('mouseout', (event) => {
+            const captoinElement = event.target.parentElement.children[1];
+            captoinElement.className = 'hide-img-overlay';
+        })
+    })
+    
+</script>
+</html>
+
+
+<!-- This makes a button that when clicked shows you the date and time. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+    </style>
+</head>
+<body>
+    <div id="dateComponent"></div>
+    <button id="dateBtn">Click for Date</button>
+</body>
+
+<script>
+    const dateElement = document.getElementById('dateComponent');
+    const dateBtn = document.getElementById('dateBtn');
+
+    dateBtn.addEventListener('click', (event) => {
+        dateElement.innerHTML = Date();
+    })
+</script>
+</html>
+
+
+<!-- Query selectors. How to place css inside of javascript. This is a pictur and when you hover over it it will add a red border to the right -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        img {
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <img src="https://s3.amazonaws.com/bottega-devcamp/browser-js/laptop.jpg" class="site-img" alt="Laptop">
+    </div>
+</body>
+
+<script>
+    const laptop = document.querySelector('.site-img');
+
+    laptop.addEventListener('mouseover', (e) => {
+        e.target.style.borderRight = '40px solid red';
+    })
+
+    laptop.addEventListener('mouseout', (e) => {
+        e.target.style.borderRight = '40px solid transparent';
+    })
+</script>
+</html>
+
+<!-- Using CSS inside of JavaScript -->
+<script>
+let card = document.getElementById('target');
+card.style.margin = "20px";
+</script>
+
+
+<!-- How to Build a Character Countdown Function. Query selectors. Conditianals. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  <input type="text" class="msgInput">
+
+  <div>
+      Characters left <span class="msgCounter">20</span>
+  </div>
+</body>
+<script>
+    const msgInput = document.querySelector('.msgInput');
+    const msgCounter = document.querySelector('.msgCounter');
+    const max = 20;
+    const ensureContentLength = (content, max) => {
+        if (content.length > max) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    msgInput.onkeyup = function() {
+        msgCounter.innerHTML = max -this.value.length;
+
+        if (!ensureContentLength(this.value, (max - 1))) {
+            msgInput.disabled = true;
+        }
+    }
+</script>
+</html>
+
+
+<!-- How to make our text count function be abled to be called whenever we want with whatever text input we want and set our own max count to whatever we want. Guide to Building Shared Behavior with JavaScript Functions -->
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+</head>
+<body>
+  <input type="text" class="msgInput">
+
+  <div>
+    Characters left <span class="msgCounter"></span>
+  </div>
+
+  <hr>
+
+  <input type="text" class="tags">
+
+  <div>
+    Characters left <span class="tagsCounter"></span>
+  </div>
+</body>
+
+<script>
+  const getCurrentContentLength = (content, max) => {
+    const maxLength = max;
+    if (content.length > maxLength) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  const msgInput = document.querySelector('.msgInput');
+  const msgCounter = document.querySelector('.msgCounter');
+  const tagsInput = document.querySelector('.tags');
+  const tagsCounter = document.querySelector('.tagsCounter');
+
+  // Nope
+  // msgInput.addEventListener('keyup', (e) => {
+  //   console.log(e);
+  // });
+
+  const textFieldLengthValidator = (textField, counter, maxCount) => {
+    textField.onkeyup = function() {
+        counter.innerHTML = maxCount - this.value.length;
+
+        if(!getCurrentContentLength(this.value, (maxCount - 1))) {
+            textField.disabled = true;
+        }
+    }
+  }
+
+  textFieldLengthValidator(msgInput, msgCounter, 144);
+  textFieldLengthValidator(tagsInput, tagsCounter, 42);
+</script>
+</html>
+
+
+<!-- How to make camand short cuts with hot keays. With this you can make a hot key, like ctrl b, be able to do whatever you want. like you go to face book, put your small amount of code in the inspect console, then click ctrl b and fallow every one at once. You can make these control keys do whatever you want. In this specific code it creates a search bar and if you ctrl b it'll youll be able to type in the search bar without having to click on the search bar. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    
+    <input type="text" id="searchBar">
+
+</body>
+
+<script>
+    const hotKeys = (e) => {
+        let windowEvent = window.event ? event : e;
+
+        if (windowEvent.keyCode === 66 && windowEvent.ctrlKey) {
+            const searchBar = document.querySelector('#searchBar');
+            searchBar.focus();
+        }
+    }
+
+    document.onkeydown = hotKeys;
+</script>
+
+</html>
+
+
+<!-- Guide to Removing HTML Elements with JavaScript -->
+<body>
+  <div class="widget">
+    <input type="text" id="chat-input">
+    <button id="msgBtn" onclick="sendMessage()">Submit</button>
+    <button onclick="clearMessages()">Clear Messages</button>
+    <div class="chat-wrapper"></div>
+  </div>
+</body>
+
+<script>
+  function sendMessage() {
+    const newDiv = document.createElement("div");
+    newDiv.classList.add('chatMsg');
+    let chatInput = document.querySelector('#chat-input').value;
+    const newContent = document.createTextNode(chatInput);
+    newDiv.appendChild(newContent);
+    const widget = document.querySelector(".widget");
+    let chatWrapper = document.querySelector("chat-wrapper");
+    document.querySelector('#chat-input').value = '';
+    if (document.querySelectorAll('.chatMsg').length > 0) {
+      chatWrapper = document.querySelectorAll('.chatMsg')[0];
+    }
+    widget.insertBefore(newDiv, chatWrapper);
+  }
+  // This function makes a  button and every time you click the button it removes all the html that was added
+  function clearMessages() {
+    const messages = document.querySelectorAll('.chatMsg');
+    messages.forEach(el => el.remove());
+  }
+</script>
+
+</html>
+
+
+<!-- This is a todo list. When you click an uncompleted todo it deletes it from the todo list and adds it to the completed todo list. -->
+<head>
+    <meta charset='UTF-8'>
+    <title></title>
+  
+    <style>
+      .todoItem:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="todos">
+      <h2>Pending Todos</h2>
+      <ul>
+        <li class="todoItem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, animi.</li>
+        <li class="todoItem">Numquam dolor quo alias nam vel voluptates magni magnam quisquam.</li>
+        <li class="todoItem">Recusandae eaque quisquam facere ab reprehenderit cupiditate magni placeat quis?</li>
+        <li class="todoItem">Expedita asperiores nam saepe voluptatem, nostrum aliquid debitis quam recusandae.</li>
+        <li class="todoItem">Quaerat velit deserunt reprehenderit, vel placeat impedit accusamus non, deleniti!</li>
+      </ul>
+    </div>
+  
+    <h2>Completed Todos</h2> 
+    <ul class="completedTodoWrapper">
+      <div class="completed"></div>
+    </ul>
+  </body>
+  
+  <script>
+    const todos = document.querySelectorAll('.todoItem');
+    const completedTodos = document.querySelector('.completed');
+    const completedTodoWrapper = document.querySelector('.completedTodoWrapper');
+  
+    todos.forEach(todo => todo.addEventListener('click', (event) => {
+      let completedTodo = document.createElement('li');
+      let todoContent = document.createTextNode(todo.textContent);
+      completedTodo.appendChild(todoContent);
+      completedTodoWrapper.insertBefore(completedTodo, completedTodos);
+      todo.remove();
+    }))
+  </script>
+  
+  </html>
+
+<!-- This is how you select an object with query selectors -->
+<div class="parent">
+    <div class="decoy"></div>
+    <div class="decoy"></div>
+    <div class="target">You got this!</div>
+    <div class="decoy"></div>
+</div>
+<script>
+  var query = document.querySelector('.target')
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
