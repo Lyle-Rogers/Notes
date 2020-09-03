@@ -1,0 +1,1 @@
+Markdown: When you add bold, italics, numbered lists, bullet points, headings, and so on to text, you’re “formatting” it. Markdown is a syntax—or, set of rules—that formats text on web pages.

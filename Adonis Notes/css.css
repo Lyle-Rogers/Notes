@@ -1,0 +1,28 @@
+/* Css files are stored in the public directory. TODO: Why the fuck are ther in the public directory. */
+
+/* You access style files from anywhere by simply writing {{ style('fileName.edgeNotNeeded') }} */
+
+/* Helpful trick. The * tags the website from or some shit. And by doing this evens out the website so that the website is balenced and you cant do weird shit like scroll left for no reason.  */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* To call a class, ad . before the class name. */
+.this-is-class-name {
+  margin: 7px;
+}
+
+/* To call an id use # before the name */
+#goats-die-every--other-damn-dai {
+  padding-bottom: 0%;
+}
+
+/* You can call things like body tags and divs by simply writing the name of it. */
+div {
+  color: blueviolet;
+}
+
+header {
+  color: orange;
+}

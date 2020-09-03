@@ -1,4 +1,4 @@
-// a wregular expression tells the user that his phone number has to be a specific type. regular exspressions is why on some sigts our pasword has to be a spacific type.
+// a wregular expression tells the user that his phone number has to be a specific type. regular exspressions is why on some sitess our pasword has to be a spacific type.
 str.match(/((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/);
 null
 '(555)555-5555'.match(/((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/);

@@ -1,0 +1,74 @@
+{{--  Views are like the html of a react app. They are even very simulare but work difrently.  --}}
+
+
+{{--  Main.edge is the main layout. Where your nave bar should be stored. It's like the root of your computer.  --}}
+
+
+{{--  This is a common small layout of a view.  --}}
+<!DOCTYPE html> {{--  This starts the html field like in react.  --}}
+<html lang="en"> {{--  Selecting the language of the doc type.  --}}
+<head> {{--  This starts the head tag where you can store things like styles and the title  --}}
+  <meta charset="UTF-8" />
+  {{ style('style') }} {{--  This is simulare to how we call styels in react. But simplair and better  --}}
+  
+  @!section('extracss') {{--  TODO: What the fuck is this doing?  --}}
+  
+  <title>
+    @!section('title') {{--  A section tag stores a variable. It's commonly used for storing chunks of code from onather view file so that you don't have to store all your code in one file. Simulare to components in react.  --}}
+  </title>
+
+</head>
+<body> {{--  When you use custome named tags like <body>, it makes it simpulare and more convienent when calling the tag in the css. For many reasons like not having to add a class name or a . before the name in the css.  --}}
+  <header> {{--  Header is another custome tag  --}}
+    <a href="/" id="logo">JobPostr</a> {{--  The a tag makes whatever is in it clickable. The href takes you to a url of any site when clicked. The / in the href tag is just taking you back to the home page og your website.  --}}
+    <nav> {{--  Nav also has no perpuse. It's just a good div naming method.  --}}
+      <ul>
+        <li><a href="/">Jobs</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li> {{--  taging the location of pages on your website like this is a lil more simple than react.  --}}
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    @!section('content') {{--  There is a wide veriety of things you can use here in place of section. That do a veriety of things. This ! make it a single line self closing tag. Normally you would use this syntax @tag some content on many lines @endTag. --}}
+  </div>
+</body>
+</html> {{--  Ending the html doc type  --}}
+
+
+{{--  This is another .edge file containing the title and content sections. --}}
+@layout('layouts.main') {{--  This is taging the main.edge file inside of layouts. It's really that simple. No need to even add .edge after main. Adonis does it for you.  --}}
+
+@section('title') {{--  This is where the content is stored from the title section in main.edge. As you can tell it is not a self closing tag.  --}}
+JobPostr - Post your Jobs
+{{--  Using a methed like this. Makes it simpular to maintane and change your website  --}}
+@endsection
+
+@section('content') {{--  You can put whatever you want in these  --}}
+
+  <h1>All Jobs</h1>
+
+  <div class="job-container">
+    <div class="blank"></div>
+    <div class="job-info">
+      <h3>Job Title</h3>
+      <p>Future job description can go here</p>
+    </div>
+  </div>
+@endsection
+
+
+{{--  This is how you access content from the database inside of a view. This is inside the index view, which we gave acces to all the data in JobController.home through http routing. And the controller has acces to the database through the model.  --}}
+@each(job in jobs) {{--  This's saying to do this for each job inside JobController. So essentually each job in the Job table in the database. So every job and new job items in the database is going to be rapped inside this html. Making it very simplistically dynamic.  --}}
+  <div class="job-container">
+  <div class="blank"></div>
+  <div class="job-info">
+    <h3><a href="{{ job.link }}"></a>{{ job.title }}</h3> {{--  The abjects inside of the double curly brackets are taging the data inside the job table in the database. It's that simple since the view already has acces to the controller. Damn!   --}}
+    <p>{{ job.description }}</p>
+  </div>
+</div>
+@endeach
+
+{{--  Mexican word of the day: Erra, Definition: Was. And also... Wait for it! Pequeno. Definition: fuck u. Nah I'm just a sad bored looser. It means small or little or just not big.
+Yo erra moy poqueno. Exact translation: I was very fucking small dumb fuck!  --}}
+

@@ -22,7 +22,7 @@ ren means rename
 
 del means delete
 
-rm -rf * is to delete your whole computer permanently. Or its del -rf *.
+rm -rf * is to delete your whole computer permanently. Or and del -rf *.
 
 -rf basically means force
 
@@ -40,7 +40,9 @@ git status gits the status of the folder your in.
 
 git push pushis my file onto git hub.
 
-git add . makes your files ready to be commited or commits them. I actually still don't know.
+git add . makes your files ready to be commited.
+
+git commit -m "Whatever you want to say for this commit"  commits your uncommited files.
 
 When in dout use git status.
 

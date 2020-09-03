@@ -1,0 +1,11 @@
+Create a new adonis aplication: adonis new nameOfApp
+Add --api-only to create an api version: adonis new nameOfApp --api-only
+
+Adonis comes with a list of commands you can run that will auto build models, controllers, and much more. It helps make
+life simplair by doing a lot of the dirty work for you. (e.g. adonis make:model Todo -m -c This makes a model named Todo
+and creates a migration and controller for the todo model with some code already ritten in all three folders)
+
+Get a list of all adonis commands: adonis
+
+To get information about a comand. Write the comand with a --help at the end.
+
