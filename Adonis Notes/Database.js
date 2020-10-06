@@ -2,8 +2,60 @@
 // GUIs manage your database. Allowing you to look at your tables and the content in them and edit, delete, and create them. 
 
 
-// To set up your db. Create a db with heroku so that your content is already online. Add the postgreSQL addon to make the db a postgreSQL db.
-// Then go to your db settings in heroku and add all your db data into the .env file. There thats all! Now adonis is working API.
+// To set up a db working with adonis and a gui to manage it, fallow these steps + ! | fuck off. And your done! Thats life, get used to it.
+// 1. After creating a new adonis app, go to heroku.com, sign in. Then click new to create a new app. Name that app 
+// whatever you like, prefurably something that maches the name of the adonis app. After creating the app, go to 
+// resorces. Click add ons. Then connect the heroku postgres add on to create a postgreSQL data base. Click on the add 
+// on after creating it and it'll take you to your db on heroku. There you can find the amount of storage you have left 
+// and rows you can use. Don't worry though the give you quite a bit for free, and if your site gets massive enough and 
+// worth it, it won't be hard to upgrade to paid plan. From there if you go to settings, you can find all your db 
+// credentials that you'll need to access the db from your adonis app and gui.
+
+// 2. A gui is a program that allows you to manage your db. Like deleting data and creating data. Download the
+// DBeaver gui from DBeaver.com. It's my favorit gui. It's just simply awesome and simplistic and has everything you 
+// need. Just like adonis, lol. From there enter in to the world of DBeaver. You'll emedietly get intruduced to a big
+// block of bullshit that you have no idea what the fuck dose. But it's ok because it's beautiful bullshit. Ok then, 
+// now go to the database option at the very top and click new database conection. It should be the first option. From
+// there a form will pop up where you'll need to put in all the information you got from your heroku dbs settings. 
+// After you've done that, click test connection at the bottom left corner to see if your database is connected 
+// properly with the credentials givin, then click finish. You now have full access to your db from here. 
+
+// .3 Your adonis app has a file called .env. I think this it stands for envirement. In there is where you'll need to 
+// put the credentials to your db as bellow.
+HOST=127.0.0.1 // There is a credential called host in your heroku setting, but it does not go here. Make sure you only chantge the data that starts with DB_.
+PORT=3333
+NODE_ENV=development
+APP_URL=http://${HOST}:${PORT}
+CACHE_VIEWS=false
+APP_KEY=UQv4T3OiXIQpmYzhQuqqvwNc4BM1laYc
+DB_CONNECTION=pg // Here is where you say what type of db it is. This is automatically set to adonis, but I changed it to pg so that it'll work with our postgres db. 
+DB_HOST=ec2-107-22-241-205.compute-1.amazonaws.com // This is where the host actually goes.
+DB_PORT=5432 // Do change the port. It was 3306 at first
+DB_USER=heaunjcihokjaz // This is you database user
+DB_PASSWORD=68a5a6c63ecc98c43263f79edfb7b7354dccb487b42eb0ec9990b31449b6c818 // Thow shall not pass you litlle shit!
+DB_DATABASE=delqlqatn50hhh // The name of thouts db.
+SESSION_DRIVER=cookie // Don't fucking touch this shit.
+HASH_DRIVER=bcrypt
+// And finally, download postgres buy simply exacuting npm i pg in the terminal. Even if you've done it before in an 
+// old adonis aplication, you'll need to again in a new one.
+
+// 4. Heroku makes you pay to use ssl. Chome definition of ssl: Secure Sockets Layer, a computing protocol that ensures
+// the security of data sent via the internet by using encryption. Basically a hole lowd of encripting your data bullshit
+// so that only your aplication and the db can read your data when it is passed back and forth. This is aviously a 
+// problem that heroku makes you pay for it, since now anyone can still our data. Adonis throughs a problem about this 
+// saying that it simply doesn't work, sense it should not! But we found a way to bypass this problem by going to the 
+// config directory and selecting database. Then foing to the pg block of code and adding ssl: { rejectUnauthorized: false }
+// But doing that allows anyone to see your data. I've even been getting security allerts from chrome saying that my 
+// password is open source. And finally to finish up, lets test to see if everything is working. Adonis already has two
+// migrations made for us for users and tokens. By exacuting adonis migration:run in the terminal, adonis runs those 
+// migrations to the db. And from there you'll see if the migration failled to connect to the db or not. If so, your 
+// credentials are more than likely wrong.
+
+
+
+
+
+
 // Using postgreSQL my migrations tend to shove shit in my mouth. If you catch your migrations trying shove shit in your mouth its probably an ssl not certified problem. Simply tell ssl to chove it's own shit down it's own throat and swallow it by going to your database.js file in config and adding this to the pg client: ssl: { rejectUnauthorized: false }
 pg: {
   client: 'pg',
@@ -15,7 +67,7 @@ pg: {
     database: Env.get('DB_DATABASE', 'adonis'),
     ssl: { // This isn't normally here. I added it to tell ssl to shut the fuck up. I deserve!! to fucking cus about this lil shit here. It waisted more than a whole fucking DAY! of my time for two stupid lines.
       rejectUnauthorized: false,
-    },
+    }
   }
 }
 
@@ -31,12 +83,13 @@ pg: {
 </div>
 @endeach
 
+
 // Mexican word of the day: Erra, Definition: Was. And also... Wait for it! Pequeno. Definition: fuck u. Nah I'm just a sad bored looser. It means small or little or just not big.
 // Yo erra moy poqueno. Exact translation: I was very fucking small dumb fuck!
 
 
-
-
+// Or you can connect a view to a controller and have it, which will give that view access to all the data the controller has access to from what ever models it's connected to and the controller method you use for that view, the ability to call all the data you need directly from the data base, and do with it as you please.
+{{ job.title }} // Like this.
 
 
 

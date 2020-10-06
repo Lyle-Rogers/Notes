@@ -37,7 +37,7 @@
 
 
 {{--  This is another .edge file containing the title and content sections. --}}
-@layout('layouts.main') {{--  This is taging the main.edge file inside of layouts. It's really that simple. No need to even add .edge after main. Adonis does it for you.  --}}
+@layout('layouts.main') {{--  This is taging the main.edge file inside of layouts. Now the main layout and this layout are connected like components in react. It's really that simple. No need to even add .edge after main. Adonis does it for you.  --}}
 
 @section('title') {{--  This is where the content is stored from the title section in main.edge. As you can tell it is not a self closing tag.  --}}
 JobPostr - Post your Jobs
@@ -71,4 +71,121 @@ JobPostr - Post your Jobs
 
 {{--  Mexican word of the day: Erra, Definition: Was. And also... Wait for it! Pequeno. Definition: fuck u. Nah I'm just a sad bored looser. It means small or little or just not big.
 Yo erra moy poqueno. Exact translation: I was very fucking small dumb fuck!  --}}
+
+
+{{--  More view commands and methods  --}}
+@layout('layouts.main') {{--  This connecting this view to the main view  --}}
+
+@section('extracss') {{--  This section tag is being exacuted in the main view. Connecting all the css files to the main view as we keep on adding more styling methods in more folders they will all be connected.  --}}
+{{ style('forms') }}
+@endsection
+
+@section('title') {{--  This literally the title of the page. And is being shown it the tab as the name of the page. Making the name danamic and allowing us the change the name to whatever we want when and where ever we want. Fucking awesomly simplistic.  --}}
+JobPostr - Sign up
+@endsection
+
+@section('content') {{--  Adonis is so simplistically dynamic. This section is being exacuted in the main view. But the signup page isn't the only page accessing it. So we can make how ever many content sections we want and display them however and wherever we want. Sota like components in react. Except simple and fucking dynamic.  --}}
+  <h1>Join now</h1>
+  <div class="job-container">
+    <form action="{{ route('UserController.create') }}" method="POST"> {{--  Forms in adonis are simular to forms in react, but better. The action method is what happens when the submit button is clicked. Which is sending the data and triggering the UserControoller's create method as a post method.  --}}
+      {{ csrfField() }} {{--  Adonis requires this csrfField() in its forms or else it'll through an error. Fucking Awesome! What csrf means is cross site request forgery. The csrfField is blocking that bullshit from being possible making all the content writin in the form hidden and only accessable with a token. So that only the adonis aplication can have access to that data. --}}
+
+      <label for="username">Username</label> {{--  Chrome: The <label> tag is used to create labels for items in a user interface. Used within <input> tags on a form, the <label> tag is additionally useful because it extends the clickable area of control elements, like buttons. Me: So now you can make your radio type inputs that i just learned about clickable when clicking the name of the input and not having to click the small little fucking shit of a circle itself. Altho you still fucking can if your just a dumb ass with no brains! The for method in this label tag is taging the name of the email input. --}}
+      <input type="text" name="username" value="{{ old('username', '') }}"> {{--  If you don't spesafy the name when using label tags or at least an id, the label method would be useless because now it's only purpose in existence was deleted! Yah. I know. This lil baby value="{{ old('username', '') }} is special. Value is doing the same thing value does in react, except fucking awesome adonis gives u simple alreade built it helper function called old. Old saves the users information in case the site is refreshed. So value is set to the vallue they used before and they don't have to retype it. The empty purenthusies after the comma is the default value if the old username value is not provided. --}}
+      @if(hasErrorFor('username')) {{--  This if statement is the same thing as in react, but cooler. HasErrorFor is an Adonis helper function to make life simple and easy. And it's fucking abvious what it's doing so don't complain and use your brain.  --}}
+        <span> {{--  Spans are like divs but meant for single line stuff instead of tons of rows of shit like divs.  --}}
+            {{ getErrorFor('username') }} {{--  We styled the spans so when errors pop up. This is so dynamic as you can see.  --}}
+        </span>
+      @endif
+
+      <button type="submit">Join now</button>
+    </form>
+  </div>
+@endsection
+
+
+{{--  This view allows us to create, update, and delete jobs. Plus also see the signed in user's jobs.  --}}
+@layout('layouts.main')
+
+@section('title')
+JobPostr - Post your Job
+@endsection
+
+@section('extracss')
+{{ style('forms') }}
+@endsection
+
+@section('content')
+  <h1>Post a Job</h1>
+
+
+  <div class="job-container">
+    @if(flashMessage('message')) {{--  This is flashing any messages with the name message if the messages session is trigured. The messages are set to trigure in controller for specific events. Like if a job was deleted, updated, are created.  --}}
+        <span>{{ flashMessage('message') }}</span>
+    @endif
+        <form action="{{ route('JobController.create') }}" method="POST"> {{--  When the user hits submit, all the data inside the form that they filled out, is sent to the JobController's create method to be posted.  --}}
+          {{ csrfField() }} {{--  This encripts all the data so that only the website and the db can see it and also prefents cross site forgury.  --}}
+  
+          <label for="title">Job Title</label>
+          <input type="text" name="title" value="{{ old('title', '') }}">
+          @if(hasErrorFor('title'))
+              <span>
+                  {{ getErrorFor('title') }}
+              </span>
+          @endif
+  
+          <label for="link">Link URL</label>
+          <input type="text" name="link" value="{{ old('link', '') }}">
+          @if(hasErrorFor('link'))
+              <span>
+                  {{ getErrorFor('link') }}
+              </span>
+          @endif
+  
+          <label for="description">Description</label>
+          <input type="text" name="description">
+          @if(hasErrorFor('description'))
+              <span>
+                  {{ getErrorFor('description') }}
+              </span>
+          @endif
+  
+          <button type="submit">Submit a Job</button>
+        </form>
+    </div>
+
+<h2>My jobs</h2>
+
+  @each(job in jobs) {{--  The JobController has already connected this view to it's userIndex method, which is passing the job data for the user logged in, from the db to the view. Now through this each method, we can duplicate all the all code in it for each job the user post. Allowing us to create a list of all the user's jobs and give each item the option of being updated or deleted.  --}}
+  <div class="job-container2">
+    <div class="blank"></div>
+    <div class="job-info">
+      <h3><a href="{{ job.link }}">{{ job.title }}</a></h3> {{--  The content in the {{ }} is the data coming from db. For example, job is the table and title is the collum. So all the data in that collum is being shown here.  --}}
+      <p>{{ job.description }}</p>
+      <ul>
+          <li><a href="{{ route('JobController.delete', { id: job.id }) }}">Delete</a></li> {{--  Adonis simply makes life simple. This a tag is a button that takes the user to the route given in the href. In the case it's taking us to a route thats in this frame work. The route is then triguring the the JobController's create method with an object called id that has the vallue of the data givin's id. The JobController then takes that data's id, finds the data in the data base, and fucks it so hard that it wished it didn't exist. And then the fary god mother of the programing world comes and grants its wish of a harsh existence.  --}}
+          <li><a href="{{ route('JobController.edit', { id: job.id }) }}">Edit</a></li> {{--  Same thing as the delete method, except the JobController takes the user to an edit page that has a form for them to fill out that contains the old data of that job. After the user is done editing it and clicks submit, the data is taked back to the JobController and is saved to the db.  --}}
+      </ul>
+    </div>
+  </div>
+  @endeach
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

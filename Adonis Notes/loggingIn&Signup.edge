@@ -1,0 +1,138 @@
+{{--  This is the code for the navigation bar in the main view. If the person is logged in, it shows the content in the @loggedIn tag. If not, it shows the content in the @else tagl. So if the person is not logged in, it'll show the option to sign in or signup. If they are logged in, it'll show the option to logout.  --}}
+@loggedIn
+  <li><a href="/post-a-job">My Jobs</a></li>
+  <li><a href="/logout">Logout</a></li>
+@else
+  <li><a href="/login">Login</a></li>
+  <li><a href="/signup">Signup</a></li>
+@endloggedIn
+
+{{--  The post method is posting the data from signup to the UserController.create method. Which is then posting the data to the database. The validator method is validating the data type. But it don't work without installing it first. adonis install @adonisjs/validator. Then add this '@adonisjs/validator/providers/ValidatorProvider' to your providers in start app.js  --}}
+{{--  Route.post('/signup', 'UserController.create').validator('CreateUser');  --}}
+
+{{--  This is the signup view  --}}
+@layout('layouts.main') {{--  This connecting this view to the main view  --}}
+
+@section('extracss') {{--  This section tag is being exacuted in the main view. Connecting all the css files to the main view as we keep on adding more styling methods in more folders they will all be connected.  --}}
+{{ style('forms') }}
+@endsection
+
+@section('title') {{--  This literally the title of the page. And is being shown it the tab as the name of the page. Making the name danamic and allowing us the change the name to whatever we want when and where ever we want. Fucking awesomly simplistic.  --}}
+JobPostr - Sign up
+@endsection
+
+@section('content') {{--  Adonis is so simplistically dynamic. This section is being exacuted in the main view. But the signup page isn't the only page accessing it. So we can make how ever many content sections we want and display them however and wherever we want. Sota like components in react. Except simple and fucking dynamic.  --}}
+  <h1>Join now</h1>
+  <div class="job-container">
+    <form action="{{ route('UserController.create') }}" method="POST"> {{--  Forms in adonis are simular to forms in react, but better. The action method is what happens when the submit button is clicked. Which is sending the data and triggering the UserControoller's create method as a post method.  --}}
+      {{ csrfField() }} {{--  Adonis requires this csrfField() in its forms or else it'll through an error. Fucking Awesome! What csrf means is cross site request forgery. The csrfField is blocking that bullshit from being possible making all the content writin in the form hidden and only accessable with a token. So that only the adonis aplication can have access to that data. --}}
+
+      <label for="username">Username</label> {{--  Chrome: The <label> tag is used to create labels for items in a user interface. Used within <input> tags on a form, the <label> tag is additionally useful because it extends the clickable area of control elements, like buttons. Me: So now you can make your radio type inputs that i just learned about clickable when clicking the name of the input and not having to click the small little fucking shit of a circle itself. Altho you still fucking can if your just a dumb ass with no brains! The for method in this label tag is taging the name of the email input. --}}
+      <input type="text" name="username" value="{{ old('username', '') }}"> {{--  If you don't spesafy the name when using label tags or at least an id, the label method would be useless because now it's only purpose in existence was deleted! Yah. I know. This lil baby value="{{ old('username', '') }} is special. Value is doing the same thing value does in react, except fucking awesome adonis gives u simple alreade built it helper function called old. Old saves the users information in case the site is refreshed. So value is set to the vallue they used before and they don't have to retype it. The empty purenthusies after the comma is the default value if the old username value is not provided. --}}
+      @if(hasErrorFor('username')) {{--  This if statement is the same thing as in react, but cooler. HasErrorFor is an Adonis helper function to make life simple and easy. And it's fucking abvious what it's doing so don't complain and use your brain.  --}}
+        <span> {{--  Spans are like divs but meant for single line stuff instead of tons of rows of shit like divs.  --}}
+            {{ getErrorFor('username') }} {{--  We styled the spans so when errors pop up. This is so dynamic as you can see.  --}}
+        </span>
+      @endif
+
+      <label for="email">Email</label>
+      <input type="email" name="email" value="{{ old('email', '') }}">
+      @if(hasErrorFor('email'))
+          <span>
+              {{ getErrorFor('email') }}
+          </span>
+      @endif
+
+      <label for="password">Password</label>
+      <input type="password" name="password">
+      @if(hasErrorFor('password'))
+          <span>
+              {{ getErrorFor('password') }}
+          </span>
+      @endif
+
+      <button type="submit">Join now</button>
+    </form>
+  </div>
+@endsection
+
+{{--  Adonis comes with a user model already created for you. That basically means it already did all the hard shit, when it comes to creating users, for us.  --}}
+
+{{--  This is the userController that the view above is using to create users in the db.  --}}
+{{--  After the user fills out the signup form, clicks submit, and all the data is passed through the validator successfully, the data is then passed on to the controller. The controller then uses the user model for adding the signup data to the database.
+'use strict'
+
+const User = use('App/Models/User') // Retrieving the user model for use.
+
+class UserController { // Actual controller method.
+  async create({ request, response, auth }) { // This is the argument the create method is using.
+    const user = await User.create(request.only(['username', 'email', 'password'])); // Here is like looking into a magnifinglass to look at the data in argument so we can change or alture it. The request argument is all the data from the form. This is only retrieving the password, email, and username from the request argument. We need to do this so that unwanted cookies aren't retrieved with the data. The create method then creates a user with the data given.
+
+    await auth.login(user); // This logs in the user after the user's profile is created. 
+
+    return response.redirect('/'); // Then after all that this redirects the user back to the home page. Simple and awesome.
+  }
+}
+
+module.exports = UserController  --}}
+
+
+{{--  This how to create the very simple logout method. We already created a logout button at the top in the navigation bar. Now when they click logout, it'll take them to the logout route whick will automatically log them out and redirect them to the home page.   --}}
+{{--  Route.get('/logout', async ({ auth, response }) => {
+  await auth.logout();
+  return response.redirect('/');
+});  --}}
+
+
+{{--  This is the login view. When they click loggin, this'll pop up so that they can login.  --}}
+@layout('layouts.main')
+
+@section('extracss')
+{{ style('forms') }}
+@endsection
+
+@section('title')
+JobPostr - Login
+@endsection
+
+@section('content')
+  <h1>Login now</h1>
+
+  <div class="job-container">
+    @if(flashMessage('loginError')) {{--  This is where the error is going to be flashed if it fails to loggin. Like if they give wrong credentials.  --}}
+        <span>{{ flashMessage('loginError') }}</span>
+    @endif
+    <form action="{{ route('UserController.login') }}" method="POST"> {{--  When submit is clicked, the data will first be taken through the validator, then to the UserController's login method.  --}}
+      {{ csrfField() }} 
+
+      <label for="email">Email</label>
+      <input type="email" name="email" value="{{ old('email', '') }}">
+      @if(hasErrorFor('email'))
+          <span>
+              {{ getErrorFor('email') }}
+          </span>
+      @endif
+
+      <label for="password">Password</label>
+      <input type="password" name="password">
+      @if(hasErrorFor('password'))
+          <span>
+              {{ getErrorFor('password') }}
+          </span>
+      @endif
+
+      <button type="submit">Login now</button>
+    </form>
+  </div>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
