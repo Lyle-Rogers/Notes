@@ -36,4 +36,40 @@ Route.group(() => {
 }).prefix('/post-a-job'); // This makes it so that the begining of every route starts with /post-a-job aoutomatically so that you don't have replicate it so much.
 
 
+// This is newly awesome. Normally you would just have to say the name of the controller and the routing system would
+// automatically select it out of the controller folder, but here is how to select a controller inside of a folder
+// that is in the controller folder with the 'Auth/RegisterController.showRegisterForm'.
+Route.get('register', 'Auth/RegisterController.showRegisterForm')
+Route.post('register', 'Auth/RegisterController.register').as('register') // And this as right here is naming this
+// routing function as register.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

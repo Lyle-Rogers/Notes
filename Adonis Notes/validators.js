@@ -72,6 +72,49 @@ class CreateUser { // Now we add all out validation rules and any errors that ar
 module.exports = CreateUser
 
 
+// This is anothier way to use the validator. The bellow code is a refrence to how this methods
+// error handling is used in an the view.
+{/* <div class="field">
+  <label class="label">Email</label>
+  <div class="control">
+    <input 
+      type="email" 
+      class="input {{ hasErrorFor('email') ? 'is-danger' : '' }}" 
+      name="email"
+      value="{{ old('email', '') }}"
+    >
+  </div>
+  {{ elIf('<span class="help is-danger">$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
+</div> */}
+
+// Now instead of having a seprit file for the validator and calling that file from a route, we
+// can define the validations from a controller.
+async register ({ request, session, response }) {
+  const validation = await validateAll(request.all(), {
+    username: 'required|unique:users,username',
+    email: 'required|email|unique:users,email',
+    password: 'required'
+  })
+
+  if (validation.fails()) {
+    session.withErrors(validation.messages()).flashExcept(['password'])
+    return response.redirect('back')
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

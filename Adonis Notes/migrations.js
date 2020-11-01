@@ -53,10 +53,14 @@ class JobsSchema extends Schema {
 module.exports = JobsSchema
 
 
+// Now after creating your migrations, and after you've set up the database, you can exacute adonis migration:run 
+// in the terminal of visual studio code and it'll run your migrations to the database. Creating all your tables you 
+// made in your migrations and the collums that your data in the tables is going to be stored in inside the database. 
 
 
-
-
+// Go to the documentation of adonis and look up migration commands in database migrations to get a list of all the 
+// the commands you can use on your migrations. Like adonis miagration:refresh. That refreshes all your migrations 
+// back to the begining. So that you can start over with them. 
 
 
 

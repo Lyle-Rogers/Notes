@@ -1,0 +1,23 @@
+Random-string: This library generate random strings. To use it, install it like this npm install random-string 
+--save. Then you can call it in your file: const randomString = require('random-string'). And 
+use it like this: 
+const user = await User.create({
+    username: request.input('username'),
+    email: request.input('email'),
+    password: request.input('password'),
+    confirmation_token: randomString({ length: 40 }) // Right here!
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+ctlr + s: Save file.
+
+ctlr + p: Open a search bar to search through all the file names in the your aplication.
+
+shift + alt & up or down key: Will copy the line your on and past it on the top or bottom line 
+under or above it.
+
+ctlr + f: Will pull out a search bar to search through all the words on your screen.
+
+ctlr + c: Copy.
+
+ctlr + v: Paste.
+
+ctlr + x: Copy and delete.
+
+ctrl + z: Will reverse what you did last. Deleting the code you just wrote or undeleting the code
+you just deleted. Get it?
+
+double click: Highlite one word.
+
+triple click: Highlite one row.
+
+quadriple click: Higlite whole file.
+
+shift + tab: Brings the line your on or the syntax selected, back a tab.
+
+shift + left or right: Will highlite that area of syntax.
+
+When in a html or edge file, writing div or nav will give the option to create a complete div or 
+nav for you. Also works with all other common syntaxs. If you put a, it'll make an a tag with a
+href ready to be sorced. And if you put div.dog, it'll create a div tag with a class name of dog.
+There are many ways of using this type of syntax to make writing code quick and easy.
+Another example is: .navbar-item.has-dropdown.is-hoverable The dot before navbar is a simple way
+of saying div. And the dots in between the the class name is seperating the name with a space. So
+that we can write class names with more than one single name. That sentense essentially turns 
+into this: <div class="navbar-item has-dropdown is-hoverable"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
