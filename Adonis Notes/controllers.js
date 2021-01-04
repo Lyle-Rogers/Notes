@@ -118,8 +118,14 @@ class JobController {
 module.exports = JobController
 
 
+// I'm not so sertain of this, but this should be how you make a variable that is calling a component work like a
+// function. By putting { curly brackets }  around the variable. Now when you call the variable it needs the round 
+// brackets () at the end of it. Symbolizing that it's a function. 
+const { validate } = use('Validator')
 
-
+const validation = await validate(request.only('email'), {
+  email: 'required|email'
+})
 
 
 

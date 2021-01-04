@@ -1,3 +1,8 @@
+{{--  This guide explains the basics behind creating, registering, loging in, and loging out users. But if you want
+more examples of how to do this, combine the methods, or just see some of the options of what you can do here, go to 
+the adonisjs-4-1-auth or the jobpostr aplications for more advanced refrences.  --}}
+
+
 {{--  This is the code for the navigation bar in the main view. If the person is logged in, it shows the content in the @loggedIn tag. If not, it shows the content in the @else tagl. So if the person is not logged in, it'll show the option to sign in or signup. If they are logged in, it'll show the option to logout.  --}}
 @loggedIn
   <li><a href="/post-a-job">My Jobs</a></li>
@@ -62,7 +67,7 @@ JobPostr - Sign up
 {{--  After the user fills out the signup form, clicks submit, and all the data is passed through the validator successfully, the data is then passed on to the controller. The controller then uses the user model for adding the signup data to the database.
 'use strict'
 
-const User = use('App/Models/User') // Retrieving the user model for use.
+const User = use('App/Models/User') // Retrieving the user data from the db
 
 class UserController { // Actual controller method.
   async create({ request, response, auth }) { // This is the argument the create method is using.
@@ -75,6 +80,15 @@ class UserController { // Actual controller method.
 }
 
 module.exports = UserController  --}}
+
+
+{{--  This is another way of creating a user to the db  --}}
+const user = await User.create({ // Of cource you have to call import the User model first. In the controller I got this from, the user data was already retrieved. Which is not what's happening in this small block of code.
+  username: request.input('username'),
+  email: request.input('email'),
+  password: request.input('password'),
+  confirmation_token: randomString({ length: 40 }) // All of these variable are already here are already difined as collums in the db. You can find and edit these collumns in there specified migrations. The user model has the ability to create many users and give these variable fields to them. So what is happenig here is, we are creating a new user with these specified fields defined for them.
+})
 
 
 {{--  This how to create the very simple logout method. We already created a logout button at the top in the navigation bar. Now when they click logout, it'll take them to the logout route whick will automatically log them out and redirect them to the home page.   --}}
@@ -125,6 +139,69 @@ JobPostr - Login
     </form>
   </div>
 @endsection
+
+
+{{--  This is another login method, but with a remember me checkbox so that the user will be remembered on the 
+website and not have to log back in. This is a controller pulling in three variable from a form in the login edge 
+file, password, email, and remember me check that is either true or false. When the user clicks confirm on the login
+form, the form data is sent to this controller method. The controller knows what the data is called because of the 
+names we gave there input fields.  --}}
+'use strict'
+
+const User = use('App/Models/User')
+const Hash = use('Hash')
+
+class LoginController {
+    async login ({ request, auth, session, response }) {
+        const { email, password, remember } = request.all() // This is retrieving the form data.
+
+        const user = await User.query() // This uses the email retrieved from the form data to query the data base. The is active variable has to be set to true or it will fail. It is set to true when the user confirms their email address with the email we sent them. 
+            .where('email', email)
+            .where('is_active', true)
+            .first() // This first function is making sure that this all happens first before the if statements are activated. Other wise it would be a messy clutter fuck dat don't work.
+
+        if (user) { // If user above comes out true. As in yes a user was found.
+            const passwordVerified = await Hash.verify(password, user.password) // Hash is an adonis function that hashes the user passwords for you. You don't even have to set it up. It is automatically done with the user model. But what hash is doing here is comparing the password givin with the hashed password in the data base.
+
+            if (passwordVerified) { // If the top function comes out pasitive
+                await auth.remember(!!remember).login(user) // What's happening here looks complicated, but it's simple. The auth component has a method called remember. It remembers the user so that the user doesn't have to log in every time the visit the website. This methoed simply needs to be true or falls. The remember variable we called was either set to 0 or 1 depending on if the user clicked the remember me checkbox or not. The two !! at the beggining of the remember variable are convirting that variable into a boolean. I'm not certain if that is what is happening with those things !!. But I'm almost positive because that is what the guide I took said it was doing. After the auth component remembers the user or not, it logs them in.
+
+                return response.route('home') // I've never done it this way but this is directing them to the home page.
+            }
+        }
+
+        session.flash({ // If the if statements fail, the user is not logged in and this notification is flashed instead.
+            notification: {
+                type: 'danger',
+                message: `We couldn't verify your credentials. Make sure you've confirmed your email address!`
+            }
+        })
+
+        return response.redirect('back') // And this is taking the route back to the loggin route so that they can login. It's not actually taking them bgack a page.
+    }
+}
+
+module.exports = LoginController
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

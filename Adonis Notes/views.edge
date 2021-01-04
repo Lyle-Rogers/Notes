@@ -73,7 +73,7 @@ JobPostr - Post your Jobs
 @endeach
 
 {{--  Mexican word of the day: Erra, Definition: Was. And also... Wait for it! Pequeno. Definition: fuck u. Nah I'm just a sad bored looser. It means small or little or just not big.
-Yo erra moy poqueno. Exact translation: I was very fucking small dumb fuck!  --}}
+Yo erra moy pequeno. Exact translation: I was very fucking small dumb fuck!  --}}
 
 
 {{--  More view commands and methods  --}}
@@ -87,7 +87,7 @@ Yo erra moy poqueno. Exact translation: I was very fucking small dumb fuck!  --}
 JobPostr - Sign up
 @endsection
 
-@section('content') {{--  Adonis is so simplistically dynamic. This section is being exacuted in the main view. But the signup page isn't the only page accessing it. So we can make how ever many content sections we want and display them however and wherever we want. Sota like components in react. Except simple and fucking dynamic.  --}}
+@section('content') {{--  Adonis is so simplistically dynamic. This section is being exacuted in the main view. But the signup page isn't the only page accessing it. So we can make how ever many content sections we want and display them however and wherever we want. Sorta like components in react. Except simple and fucking dynamic.  --}}
   <h1>Join now</h1>
   <div class="job-container">
     <form action="{{ route('UserController.create') }}" method="POST"> {{--  Forms in adonis are simular to forms in react, but better. The action method is what happens when the submit button is clicked. Which is sending the data and triggering the UserControoller's create method as a post method.  --}}
@@ -105,6 +105,21 @@ JobPostr - Sign up
     </form>
   </div>
 @endsection
+
+
+{{--  Include is simular to section. The difrense though, is that you have to specisify the exact edge file. Unlike
+section, where as many edge files as you want can switch places in the same content container.  --}}
+@include('includes.notification')
+
+
+{{--  This is the code for the navigation bar in the main view. If the person is logged in, it shows the content in the @loggedIn tag. If not, it shows the content in the @else tagl. So if the person is not logged in, it'll show the option to sign in or signup. If they are logged in, it'll show the option to logout.  --}}
+@loggedIn
+  <li><a href="/post-a-job">My Jobs</a></li>
+  <li><a href="/logout">Logout</a></li>
+@else
+  <li><a href="/login">Login</a></li>
+  <li><a href="/signup">Signup</a></li>
+@endloggedIn
 
 
 {{--  This view allows us to create, update, and delete jobs. Plus also see the signed in user's jobs.  --}}
@@ -175,17 +190,29 @@ JobPostr - Post your Job
 @endsection
 
 
+{{--  This code is inside a controller. A token was sent in a link to the routes. The routes then exacuted this 
+  function here. We then used params to get the token and place it with the view that was rendered. So now we can 
+  access the token from the view. Params is like a storage container that stores the previously used data.  --}}
+showResetForm ({ params, view }) {
+  return view.render('auth.passwords.reset', { token: params.token })
+}
 
 
+{{--  You can put any type of data into a variable. Adonis allows you to set a variable equal to html, and call it
+from a view with triple curley braces instead of double {{{ variableName }}}. --}}
 
 
+{{--  Adding a @ before double curley braces @{{ variableName }} makes the data not get processed in the view.  --}}
 
 
-
-
-
-
-
+{{--  Just a good tip.  --}}
+@if(hours < 12)
+  <h2> Good Morning </h2>
+@elseif(hours < 18)
+  <h2> Good Afternoon </h2>
+@else
+  <h2> Good Evening </h2>
+@endif
 
 
 

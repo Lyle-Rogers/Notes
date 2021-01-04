@@ -35,11 +35,14 @@
 //   <button type="submit">Join now</button>
 // </form> */}
 
-// Then add the validator method to that forms views route in start/routes.js.
+// Then add the validator method to that route that is being used to post the validated data in start/routes.js.
 Route.post('/signup', 'UserController.create').validator('CreateUser'); // We create this route so that we can bind the signup view, the UserController, and the validator together. 'CreateUsers' in .validator() is the specific validator method we are using.
 
 
-// Now create the validator method CreateUsers in the terminal: adonis make:validator CreateUser.
+// Now ad the validator provider: '@adonisjs/validator/providers/ValidatorProvider' to providers in start/app.
+
+
+// Then create the validator method CreateUsers in the terminal: adonis make:validator CreateUser.
 
 
 // The CreateUser validator was created in app/validators 
@@ -62,8 +65,8 @@ class CreateUser { // Now we add all out validation rules and any errors that ar
   }
 
   async fails (error) { // Async is making the function dorment, only to be awoken and exacuted when an error is throne.
-    this.ctx.session.withErrors(error) // This is flashing all the error messages if errors are givin.
-      .flashAll();
+    this.ctx.session.withErrors(error) 
+      .flashAll(); // This is flashing all the error messages if errors are givin.
     
     return this.ctx.response.redirect('back'); // This is redirecting the user back to the route they came from if the form submission fails.
   }
@@ -97,7 +100,7 @@ async register ({ request, session, response }) {
   })
 
   if (validation.fails()) {
-    session.withErrors(validation.messages()).flashExcept(['password'])
+    session.withErrors(validation.messages()).flashExcept(['password']); // The flashExcept here is flashing all the errors for the validation, even the password errors, but if you redirect the page back. Your old email and username will be there but not the password. I think for security reasons this is useful.
     return response.redirect('back')
   }
 }

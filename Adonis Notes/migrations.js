@@ -2,6 +2,10 @@
 // Models connect to the migrations to interact with the db from the controllers which are kinda like the front end part of the framework. 
 
 
+// I think migrations and models are connected by their names. Models have upercase singular names like User and 
+// migrations have lowercase plural name, like users.
+
+
 // This is a migration
 'use strict'
 
@@ -40,7 +44,7 @@ class JobsSchema extends Schema {
       table.string('title') // Table is giving it a new table. String is making the data in that table a string. And title is the name of that table, which you can use to access the data.
       table.string('link')
       table.string('description')
-      table.integer('user_id') // An integer is a number.
+      table.integer('user_id') // An integer is a number. This migration is acociated with a model. That job model has a hasMany relationship with the user model. That's why we have user_id here. And user_id has to be named exactly that because the hasMany relationship automatically adds the user id to this field.
       table.timestamps()
     })
   }
@@ -60,9 +64,37 @@ module.exports = JobsSchema
 
 // Go to the documentation of adonis and look up migration commands in database migrations to get a list of all the 
 // the commands you can use on your migrations. Like adonis miagration:refresh. That refreshes all your migrations 
-// back to the begining. So that you can start over with them. 
+// back to the begining. So that you can start over with them, which will also delete all the data in them too.
 
 
+// Adonis migration:rollback will role back your last migration.
+
+
+// To alter a migration, (e.g make or update columns) run adonis migration:make name_of_the_migration_you_want_to_alter_please_dont_make_it_this_long_though. 
+// Then the option to chose select table or make table will pop up. Choose select table. Then go to the new migration file and alter the
+//  table.
+'use strict'
+
+/** @type {import('@adonisjs/lucid/src/Schema')} */
+const Schema = use('Schema')
+
+class ForumMessagesSchema extends Schema {
+  up () {
+    this.table('forum_messages', (table) => {
+      table.string('message', 3000).notNullable().alter() // Write the column name of the calumn you want to alter, change the column however you like, then write .alter() at the end of the column to indicate that the column is being altered.
+    })
+  }
+
+  down () {
+    this.table('forum_messages', (table) => {
+      // reverse alternations
+    })
+  }
+}
+
+module.exports = ForumMessagesSchema
+// And to add a new column, add the column normally with a new name, but dont add alter at the end.
+// Now run adonis migration:run to migrate the new migration file and your table should be updated.  
 
 
 

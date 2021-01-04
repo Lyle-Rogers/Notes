@@ -3,7 +3,7 @@
 
 
 // To set up a db working with adonis and a gui to manage it, fallow these steps + ! | fuck off. And your done! Thats life, get used to it.
-// 1. After creating a new adonis app, we need to create a new heroku app through the terminal. But first, we need need
+// 1. After creating a new adonis app by exucuting adonis new Name_Of_App in the terminal, we need to create a new heroku app through the terminal. But first, we need need
 // to install the heroku tool kit. So just type heroku tool kit and your operating system, like windows, into the 
 // search bar, click the heroku tool kit link, then download it. After, create a new heroku app by exacuting heroku 
 // create name-of-app in the visual studio code terminal, or just going to the heroku website and creating it there, 
@@ -23,7 +23,7 @@
 // now go to the database option at the very top and click new database conection. It should be the first option. From
 // there a form will pop up where you'll need to put in all the information you got from your heroku dbs settings. 
 // After you've done that, click test connection at the bottom left corner to see if your database is connected 
-// properly with the credentials givin, then click finish. You now have full access to your db from here. 
+// properly with the credentials givin, then click finish. You now have full access to your db from there. 
 
 // .3 Your adonis app has a file called .env. I think this it stands for envirement. In there is where you'll need to 
 // put the credentials to your db as bellow.
@@ -63,11 +63,6 @@ HASH_DRIVER=bcrypt
 // have the lock symble at the top left. But for some reason if you add https to the begining of the websites url instead
 // of just http, it gives you the lock symbol and works fine. But there is many ways to configure ssl for free without
 // heroku. Like cloudflare.con, but I tried to use cloudflare and it was being a bitch.
-
-
-
-
-
 
 // Using postgreSQL my migrations tend to shove shit in my mouth. If you catch your migrations trying shove shit in your mouth its probably an ssl not certified problem. Simply tell ssl to chove it's own shit down it's own throat and swallow it by going to your database.js file in config and adding this to the pg client: ssl: { rejectUnauthorized: false }
 pg: {

@@ -1,0 +1,35 @@
+<!-- This makes a textarea that auto hights itself. So every time the user gets
+to the bottom of the text erea when typing, the textarea gives itself an extra 5 
+pixels so that the user can see the whole text as the text gets bigger. -->
+
+
+<!-- This little thingy here is blowing my mind. This is inside a textarea where
+the class would go: onkeyup="autoheight(this)". What this is doing is exacuting the 
+autoheight function every time a key is clicked on the keyboard if the textarea is
+in view. The argument passed to the auto hight function was this. Wtf dose this mean, 
+am I right. Well apearently this is a javascript reserved word if used correctly. 
+In this case, this means the textarea itself. So we just passed a textarea to a function!  -->
+<!DOCTYPE html>
+<html>
+<style>
+#demo {
+  overflow: hidden;
+  height: 50px;
+  width: 200px;
+}
+</style>
+<body>
+
+<form>
+  <textarea id="demo" onkeyup="autoheight(this)" >Write message here...</textarea> 
+</form>
+
+<script>
+  function autoheight(x) {
+    x.style.height = "5px";
+    x.style.height = (15+x.scrollHeight)+"px";
+  }
+</script>
+
+</body>
+</html>

@@ -41,7 +41,8 @@ Route.group(() => {
 // that is in the controller folder with the 'Auth/RegisterController.showRegisterForm'.
 Route.get('register', 'Auth/RegisterController.showRegisterForm')
 Route.post('register', 'Auth/RegisterController.register').as('register') // And this as right here is naming this
-// routing function as register.
+// routing as register. We do this so that in a form or anywhere else we can call this route from, instead of having
+// to write the whole route down and even the controller to call this route, we can simply just say register.
 
 
 

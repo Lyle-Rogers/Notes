@@ -103,6 +103,21 @@ console:
 // </html>
 
 
+// Try exacutes the block of code inside it. Then catch, which is a part of try, catchess any errors in try.
+try {
+  // Some block of code that has some shit to do with an email being pulled from the database.
+} catch (error) {
+  session.flash({
+      notification: {
+          type: 'danger',
+          message: `Sorry, there is no user with the email address of ${ request.input('email') }`
+      }
+  })
+
+  return response.redirect('back')
+}
+
+
 // Create an Array Popper that Alternates Returning from Each Side of an Array in JavaScript using a class.
 class ArrayPopper {
     constructor(arr) {

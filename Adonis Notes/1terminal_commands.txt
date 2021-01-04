@@ -9,9 +9,11 @@ Get a list of all adonis commands: adonis
 
 To get information about a comand. Write the comand with a --help at the end.
 
-this command Adonis make:controller Auth/RegisterController --type=http does a tone of things. Like first of all,
+this command Adonis make:controller Auth/Register --type=http does a tone of things. Like first of all,
 because of the / after auth, this controller will be created with a new folder called auth. And the --type=http sets 
-the controller type to http for you so you don't have to manualy sellect it type http.
+the controller type to http for you so you don't have to manualy sellect it type http. After the Auth folder was 
+already created, I was still able to execute adonis make:controller Auth/Login --type=http and it made a new 
+controller in the same folder.
 
 npm install npm@latest -g: Updates npm. When there is an error related to npm not being able to
 find a file, this normally saves my life. 
@@ -19,7 +21,7 @@ find a file, this normally saves my life.
 npm i: Installs all your dependencies. It can help solve wierd errors too, if a dependency wasn't 
 installed properly and is crashing your site.
 
-
+heroku git:remote -a appName: Will link a heroku app that is already created, to your local project.
 
 
 

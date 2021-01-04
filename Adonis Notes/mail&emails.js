@@ -30,16 +30,26 @@ smtp: {
 },
 
 
-// This is how you send a conformation email to a user, through a controller, once they have 
-// created an acount. Pull the email librairy in like this: const Email = use('Email'). Then 
-// send it like this.
+// After all the credentials are set up, you can send emails like this. First import the mailing
+// system: const Mail = use('Mail'). The method bellow is simple enough to understand. But the
+// 'auth.emails.confirm-email' is the location of the edge file we'll be sending as an email.
+// This method is insida a controller.
 await Mail.send('auth.emails.confirm-email', user.toJSON(), message => {
   message.to(user.email)
   .from('lick@frog.com')
-  .subject('Please confirm your email address')
+  .subject('Please confirm your email address') 
 })
 
+// This is my edge file that is the email we'll be sending.
+<p>Hi {{ username }}, </p>
 
+<p>
+    Welcome to Adonisjs, please confirm your email address by clicking the link below:
+</p>
+
+<p>
+    <a href="{{ appUrl('register/confirm' + confirmation_token) }}">Confirm email address</a>
+</p>
 
 
 
