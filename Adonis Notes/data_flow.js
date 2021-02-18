@@ -18,19 +18,6 @@ hooks.after.providersBooted(() => {
 })
 
 
-// This is a way of finding a user and editing thier data. I think params is a data storage that the routes have 
-// access to, because we added :token to the route that is triguring this controller method, and bollow it looks like
-// we defined what :token means whith params. 
-async confirmEmail ({ params }) {
-    const user = await User.findBy('confirmation_token', params.token)
-
-    user.confirmation_token = null
-    user.is_active = true
-
-    await user.save() // This saved the changes
-}
-
-
 // This checks if the user is logged in or not. Abviously have to import auth first.
 await auth.check()
 
@@ -52,7 +39,12 @@ const messages = await Friend
     .fetch()
     
 
-
+// This is like the coolist thing I've ever seen! If you add desc to the second peramiter of orderBy, it'll make the order of the data 
+// come out from last to first, instead of first to last. Desc stands for descend.
+const blogs = await Blog
+      .query()
+      .orderBy('id', 'desc')
+      .fetch()
 
 
 

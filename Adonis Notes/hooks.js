@@ -38,3 +38,20 @@ hooks.after.providersBooted(() => {
     return response.redirect('/login')
   })
 })
+
+
+// With hooks you can define global variables that you can access in all of you view files. 
+'use strict'
+
+const { hooks } = require('@adonisjs/ignitor')
+const moment = require('moment')
+
+hooks.after.providersBooted(() => { // You can find a list of difrent options like providersBooted in the adonis doc's hook section.
+  const View = use('View')
+
+  View.global('thisMonth', () => { // This is were we difine the global variable. thisMonth is the name of the variable and the second agument is the value of the variable.
+    return moment().format('MMMM')  // Moment is a time librairy that is returning the month we are in. So the value of the variable would be February.
+  })
+})
+// To call this variable from any View use: {{ thisMonth() }}
+// Don't forget to use the () function idocator or it wont work.

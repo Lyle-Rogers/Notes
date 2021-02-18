@@ -27,7 +27,7 @@
 
 // .3 Your adonis app has a file called .env. I think this it stands for envirement. In there is where you'll need to 
 // put the credentials to your db as bellow.
-HOST=127.0.0.1 // There is a credential called host in your heroku setting, but it does not go here. Make sure you only chantge the data that starts with DB_.
+HOST=127.0.0.1 // There is a credential called host in your heroku setting, but it does not go here. Make sure you only change the data that starts with DB_.
 PORT=3333
 NODE_ENV=development
 APP_URL=http://${HOST}:${PORT}
@@ -55,6 +55,8 @@ HASH_DRIVER=bcrypt
 // almost everything you have in the env file to your config vars but also three other crucial things. After that we 
 // should be set to push the app now. So after you've pushed your app to git, exacute git push heroku main in the 
 // terminal and your app will be pushed to heroku. Now go to the provided url in your app settings and walla, your live!
+// If you get this error fatal: 'heroku' does not appear to be a git repository, then try heroku git:remote -a name-of-app.
+// This will set your git remote to your app. You have to be logged in first though. To do that use heroku auth:login.
 
 // Heroku makes you pay to use ssl. Chrome definition of ssl: Secure Sockets Layer, a computing protocol that ensures
 // the security of data sent via the internet by using encryption. Basically a hole lowd of encripting your data bullshit
@@ -62,7 +64,8 @@ HASH_DRIVER=bcrypt
 // problem that heroku makes you pay for it, since now anyone can still our data. So once the site is online, it doesnt 
 // have the lock symble at the top left. But for some reason if you add https to the begining of the websites url instead
 // of just http, it gives you the lock symbol and works fine. But there is many ways to configure ssl for free without
-// heroku. Like cloudflare.con, but I tried to use cloudflare and it was being a bitch.
+// heroku. Like cloudflare.com, but I tried to use cloudflare and it was being a bitch, because I needed my own domain name.
+// and herokus free domain doesn't count.
 
 // Using postgreSQL my migrations tend to shove shit in my mouth. If you catch your migrations trying shove shit in your mouth its probably an ssl not certified problem. Simply tell ssl to chove it's own shit down it's own throat and swallow it by going to your database.js file in config and adding this to the pg client: ssl: { rejectUnauthorized: false }
 pg: {

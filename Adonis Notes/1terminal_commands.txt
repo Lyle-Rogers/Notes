@@ -16,7 +16,11 @@ already created, I was still able to execute adonis make:controller Auth/Login -
 controller in the same folder.
 
 npm install npm@latest -g: Updates npm. When there is an error related to npm not being able to
-find a file, this normally saves my life. 
+find a file, this normally saves my life. If this doesn't work, check to see if node is up to date with node -v.
+If it is not, use npm install -g update-node to update node from the terminal. If that doesn't work, then go to 
+nodejs in the browser and update it there. I had to go to the website to do it, because I had the same npm error
+trying to update node in the terminal. And in all honisty, I know you are reading this for like the twentieth time 
+because you are having npm errors. So just run npm i it'll update or download everything.
 
 npm i: Installs all your dependencies. It can help solve wierd errors too, if a dependency wasn't 
 installed properly and is crashing your site.

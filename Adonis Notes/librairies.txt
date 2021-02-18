@@ -9,8 +9,12 @@ const user = await User.create({
 })
 
 
-
-
+Moment.js is an npm librairy that has been running since 1970. It's for anything to do with time and dates.
+How to install: npm install --save moment
+How to import in AdonisJS: const moment = require('moment')
+How to import in React: import moment from 'moment';
+This is how you get the date: const date = moment().format("MMM Do YYYY"); 
+That will print out: Feb 17th 2021
 
 
 

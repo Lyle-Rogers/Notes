@@ -30,6 +30,11 @@ session.flash({
 // in the controller like above. Then style the div name with css. In fucking credable.
 
 
+// This is another way of handling errors. But instead of displaying it as a notification, this will take you to a blank 
+// white screen that only has the words of the error bellow. This error is for only when you want mess with your users.
+.catch( ( err ) => {
+    response.send('ERROR' + ': ' + 'You have not paid for this item yet so fuck off.')
+});
 
 
 
