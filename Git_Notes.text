@@ -1,15 +1,27 @@
 git branch: Shows what branch your on.
 
 git checkout Staging: Git checkout changes the branch your on. Before I was on branch main and after runing this
-I am now in the staging branch.
+I am now in the staging branch. And it also changes all your local code to that branch as well.
 
 git checkout -b lyle: This creates a new branch named lyle.
 
-git pull: Pulls your data from the branch into your local directory. Sometimes needed when switching directories.
+git pull origin branch-name: Pulls the code from the branch given and replaces the local code with it. This is often
+used instead of git merge for its simplisity. So you can chechout into a branch and git pull onother branch then git 
+push to the new branch to merge the two.
 
-git clone https://github.com/adri.....etc: Clones the git repo given.
+git fetch: Compares your branches for merging but I am not to fumiliar with it.
+
+git clone https://github.com/adri.....etc: Clones the git repo given. You may need to rap the url in purenthasies "".
+If you clone your own repo and you are signed in to git on the browser then it will automatically set your credentials
+for you.
 
 git remote -v: This shows http verson of the directory you are pushing to.
 
 git remote set-url --add --push origin https://github.com/a......etc: This changes the directory you are pushing
 to, to the one given. 
+
+git push --set-upstream origin branch-name: This sets your upstream to a branch. Comonly needed when first pushing
+after cloning a git repo.
+
+ git merge origin branch-name: This will merge the branch I am on with the branch name given. Make sure to git commit 
+ first and be carfule with this comand. Doing the other option given above in git pull is also available.
