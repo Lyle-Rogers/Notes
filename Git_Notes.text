@@ -1,0 +1,15 @@
+git branch: Shows what branch your on.
+
+git checkout Staging: Git checkout changes the branch your on. Before I was on branch main and after runing this
+I am now in the staging branch.
+
+git checkout -b lyle: This creates a new branch named lyle.
+
+git pull: Pulls your data from the branch into your local directory. Sometimes needed when switching directories.
+
+git clone https://github.com/adri.....etc: Clones the git repo given.
+
+git remote -v: This shows http verson of the directory you are pushing to.
+
+git remote set-url --add --push origin https://github.com/a......etc: This changes the directory you are pushing
+to, to the one given. 

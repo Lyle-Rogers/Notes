@@ -70,7 +70,7 @@ module.exports = JobsSchema
 // Adonis migration:rollback will role back your last migration.
 
 
-// To alter a migration, (e.g make or update columns) run adonis migration:make name_of_the_migration_you_want_to_alter_please_dont_make_it_this_long_though. 
+// To alter a migration, (e.g make or update columns) run adonis migration:make name_of_the_migration_you_want_to_alter. 
 // Then the option to chose select table or make table will pop up. Choose select table. Then go to the new migration file and alter the
 //  table.
 'use strict'
