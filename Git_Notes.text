@@ -24,4 +24,5 @@ git push --set-upstream origin branch-name: This sets your upstream to a branch.
 after cloning a git repo.
 
  git merge origin branch-name: This will merge the branch I am on with the branch name given. Make sure to git commit 
- first and be carfule with this comand. Doing the other option given above in git pull is also available.
+ first and be carfule with this comand. Doing the other option given above in git pull is also available. Actualy I'm
+ just talking shit, it's easy!
