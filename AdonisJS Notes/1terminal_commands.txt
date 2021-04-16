@@ -27,7 +27,7 @@ installed properly and is crashing your site.
 
 heroku git:remote -a appName: Will link a heroku app that is already created, to your local project.
 
-
+code .: Opens VS Code inside the directory that you are cerently in.
 
 
 

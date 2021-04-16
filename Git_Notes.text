@@ -17,12 +17,22 @@ for you.
 
 git remote -v: This shows http verson of the directory you are pushing to.
 
-git remote set-url --add --push origin https://github.com/a......etc: This changes the directory you are pushing
-to, to the one given. 
+git remote set-url --add --push origin https://github.com/a......etc: This changes the git repository you are to 
+pushing to, to the one given. git remote add origin https://etc.....git: Also adds a new you repository url.
+
+git remote rm origin: This removes a repository's url you are pushing too. Urls have a name of origin, heroku, and others.
+Adding orgin, like in the example, will remove all the urls that are using origin.
 
 git push --set-upstream origin branch-name: This sets your upstream to a branch. Comonly needed when first pushing
 after cloning a git repo.
 
- git merge origin branch-name: This will merge the branch I am on with the branch name given. Make sure to git commit 
- first and be carfule with this comand. Doing the other option given above in git pull is also available. Actualy I'm
- just talking shit, it's easy!
+git merge origin branch-name: This will merge the branch I am on with the branch name given. Make sure to git commit 
+first and be carfule with this comand. Doing the other option given above in git pull is also available. Actualy I'm
+just talking shit, it's easy!
+
+git fetch: Refreshes your branches so that git is up to date with your online aplication. Like if a new branch was 
+created recently, git fetch will fetch that data so that your local aplication is up to date with your online aplication. 
+
+git log: Shows your commit history. Each commit will give you a name and a commit id.
+
+git checkout commit-id-12feg3435: To switch to an old commit.

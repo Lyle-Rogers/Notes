@@ -1,10 +1,20 @@
-py manage.py createsuperuser: Creates a super user.
+py manage.py createsuperuser: Creates a super user. After entering the command the terminal will prompt you to 
+select a user name and password. You need to activate the virtual environment with the command bellow to do this
+first.
 
-.\env\Scripts\activate: Activates the env file. Whatever tf that means. Wait I actually might know. But run this 
-before running the server. Or it won't work.
+.\env\Scripts\activate: Activates the virtual environment. Whatever tf that means. Wait I actually might know. But 
+run this before running any django commands or it will through an error.
 
-py manage.py runserver: Runs the server
+py manage.py runserver: Runs the back end server.
 
 pip install -r requirements.txt.: Installs dependencies. Might not need the trailing .
 
 pip install --upgrade pip: I think this updates python for you.
+
+npm start: runs the front end server.
+
+Dependency errors for outdated dependencies. Use these newer dependency versions:
+djangorestframework-simplejwt==4.6.0
+psycopg2==2.8.6
+psycopg2-binary==2.8.6
+Pillow==8.1.2
