@@ -9,8 +9,6 @@ git pull origin branch-name: Pulls the code from the branch given and replaces t
 used instead of git merge for its simplisity. So you can chechout into a branch and git pull onother branch then git 
 push to the new branch to merge the two.
 
-git fetch: Compares your branches for merging but I am not to fumiliar with it.
-
 git clone https://github.com/adri.....etc: Clones the git repo given. You may need to rap the url in purenthasies "".
 If you clone your own repo and you are signed in to git on the browser then it will automatically set your credentials
 for you.

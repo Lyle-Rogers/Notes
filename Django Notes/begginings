@@ -7,13 +7,13 @@ run this before running any django commands or it will through an error.
 
 py manage.py runserver: Runs the back end server.
 
-pip install -r requirements.txt.: Installs dependencies. Might not need the trailing .
+pip install -r requirements.txt.: Installs dependencies.
 
 pip install --upgrade pip: I think this updates python for you.
 
 npm start: runs the front end server.
 
-Dependency errors for outdated dependencies. Use these newer dependency versions:
+Dependency errors for outdated dependencies. Use these newer dependency versions in requirements.txt:
 djangorestframework-simplejwt==4.6.0
 psycopg2==2.8.6
 psycopg2-binary==2.8.6
