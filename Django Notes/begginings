@@ -2,6 +2,10 @@ py manage.py createsuperuser: Creates a super user. After entering the command t
 select a user name and password. You need to activate the virtual environment with the command bellow to do this
 first.
 
+pip install django: Installs django.
+
+virtualenv env: Creates a virtual environment.
+
 .\env\Scripts\activate: Activates the virtual environment. Whatever tf that means. Wait I actually might know. But 
 run this before running any django commands or it will through an error.
 
@@ -9,7 +13,7 @@ py manage.py runserver: Runs the back end server.
 
 pip install -r requirements.txt.: Installs dependencies.
 
-pip install --upgrade pip: I think this updates python for you.
+pip install --upgrade pip: I think this updates pip for you.
 
 npm start: runs the front end server.
 
