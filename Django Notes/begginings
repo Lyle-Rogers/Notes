@@ -1,13 +1,18 @@
+django-admin startproject projectTitle: This makes a new django project name projectTitle.
+
 py manage.py createsuperuser: Creates a super user. After entering the command the terminal will prompt you to 
 select a user name and password. You need to activate the virtual environment with the command bellow to do this
-first.
+first. After user is created you can log into the django db on chrome with the user credentials given to access the db
+to create users or other things.
 
 pip install django: Installs django.
 
-virtualenv env: Creates a virtual environment.
+python -m pip install -U Django: Udates django to it's newest version.
+
+virtualenv env: Creates a virtual environment. Run this before the bottom command or it won't work.
 
 .\env\Scripts\activate: Activates the virtual environment. Whatever tf that means. Wait I actually might know. But 
-run this before running any django commands or it will through an error.
+run this before running any django commands or it will through an error. This runs after the top command.
 
 py manage.py runserver: Runs the back end server.
 
@@ -15,10 +20,21 @@ pip install -r requirements.txt.: Installs dependencies.
 
 pip install --upgrade pip: I think this updates pip for you.
 
-npm start: runs the front end server.
+npm start: runs the runs reacts front end server.
 
 Dependency errors for outdated dependencies. Use these newer dependency versions in requirements.txt:
 djangorestframework-simplejwt==4.6.0
+Pillow==8.1.2
 psycopg2==2.8.6
 psycopg2-binary==2.8.6
-Pillow==8.1.2
+
+In LG when you delete and reinstall the BE it sometimes throughs an error because the user is in the FE isn't identified.
+to fix this past and run this in the inspect terminal and it'll log you out and redirect you to the login page. Sign in
+and it'll work again: localStorage.removeItem('userTokenLG')
+
+py manage.py makemigrations: After making a new model or editing a model, runing this creates the migration for the new 
+model data.
+
+py manage.py migrate: After the migration files are made. This command migrates the new migrations to the database.
+
+py manage.py showmigrations: Shows the migrations that are migrated in the terminal.

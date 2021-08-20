@@ -1,0 +1,28 @@
+This how to use aws with the backend:
+pip install awsebcli: Installs awsebcli, the aws eb cli I think. If it doesn't work try this one pip install awsebcli --upgrade --user.
+
+eb --virsion: Checks the version
+
+eb login: Logs in to the eb cli with the browser.
+
+eb init: Sets eb init into the terminal.
+
+eb init --profile eb-cli2: eb-cli2 is my profile. I think this inits with the profile.
+
+eb status: Checks the eb status.
+
+eb console. Opens the eb console with the browser.
+
+eb deploy: Deploys your backend to the internet. Do this only after your Production branch with git is up to date.
+
+
+
+
+
+
+This is how to use aws with the react frontend:
+First check if the git staging branch is up to date with the git pull origin staging command.
+Checkout into the Prod git branch. Then merge the Prod git branch with the staging git branch with git pull origin staging.
+Then push everything to the git Prod branch with git push.
+Next after everything is live we will npm run build. This will create the disc folder that will be given to the aws bucket to host the react
+front end with the internet. 
