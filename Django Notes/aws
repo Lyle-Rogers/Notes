@@ -1,9 +1,10 @@
 This how to use aws with the backend:
 pip install awsebcli: Installs awsebcli, the aws eb cli I think. If it doesn't work try this one pip install awsebcli --upgrade --user.
 
-eb --virsion: Checks the version
+eb --version: Checks the version
 
 eb login: Logs in to the eb cli with the browser.
+Ad682144? is the password and adrianlebaron@gmail.com is the email to adrian's aws account.
 
 eb init: Sets eb init into the terminal.
 
