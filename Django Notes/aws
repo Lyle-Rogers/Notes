@@ -27,3 +27,5 @@ Checkout into the Prod git branch. Then merge the Prod git branch with the stagi
 Then push everything to the git Prod branch with git push.
 Next after everything is live we will npm run build. This will create the disc folder that will be given to the aws bucket to host the react
 front end with the internet. 
+stripe.api_key = 'sk_test_51GrtUoHuoQnP408hRCNMQHsnv6xGhKddTNKoSlpC3apsOarcLs23GnYmrqregvBNVaU7bU1SJuw8BRuFhRuX4f1U001f9qGXda'
+stripe.api_key = 'sk_live_voDNOPn7C52OfWHkivdYpUYF003ugiOfZ2'
