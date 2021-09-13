@@ -16,6 +16,7 @@ eb console. Opens the eb console with the browser.
 
 eb deploy: Deploys your backend to the internet. Do this only after your Production branch with git is up to date.
 
+If there is ever any problem with the aws dependencies upgrading pip will probably fix it: python -m pip install --upgrade pip
 
 
 
@@ -24,8 +25,10 @@ eb deploy: Deploys your backend to the internet. Do this only after your Product
 This is how to use aws with the react frontend:
 First check if the git staging branch is up to date with the git pull origin staging command.
 Checkout into the Prod git branch. Then merge the Prod git branch with the staging git branch with git pull origin staging.
-Then push everything to the git Prod branch with git push.
+Then push everything to the git Prod branch with git push. Make sure your api urls are correct.
 Next after everything is live we will npm run build. This will create the disc folder that will be given to the aws bucket to host the react
 front end with the internet. 
 stripe.api_key = 'sk_test_51GrtUoHuoQnP408hRCNMQHsnv6xGhKddTNKoSlpC3apsOarcLs23GnYmrqregvBNVaU7bU1SJuw8BRuFhRuX4f1U001f9qGXda'
 stripe.api_key = 'sk_live_voDNOPn7C52OfWHkivdYpUYF003ugiOfZ2'
+
+Make sure all http://127.0.0.1:8000 axios calls are https://www.lebarongaleana-api.com axios calls instead before pushing it live!
