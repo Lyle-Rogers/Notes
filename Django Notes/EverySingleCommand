@@ -20,13 +20,19 @@ virtualenv env: Creates a virtual environment. Run this before the bottom comman
 .\env\Scripts\activate: Activates the virtual environment. Whatever tf that means. Wait I actually might know. But 
 run this before running any django commands or it will through an error. This runs after the top command.
 
+deactivate: deactivates the virtual environment and the env at the beggining will disappear.
+
+pip freeze: Gives a list of all the dependencies in your activated environment. If the environment isn't activated it'll give a list of every 
+dependency installed on the computer instead of the ones in the virtual environment.
+
+pip freeze > requirements.txt: Makes a file called requirements.txt with a list of every dependency in your virtual environment. This file is where
+aws and other things find the requirements needed for the aplication or you can run a command that install all of the dependencies in this list.
+
 py manage.py runserver: Runs the back end server.
 
 pip install -r requirements.txt.: Installs dependencies.
 
 pip install --upgrade pip: I think this updates pip for you.
-
-npm start: runs the runs reacts front end server.
 
 py manage.py shell: Opens the python shell so that you can use python functions like creating and deleting that data that runs with the backend.
 

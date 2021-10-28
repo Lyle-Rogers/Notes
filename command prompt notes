@@ -28,6 +28,8 @@ rm -rf * is to delete your whole computer permanently. Or and del -rf *.
 
 code is to open visual studio code
 
+code . opens visual studio code in the same directory you'r in
+
 more then a file name will show you what is written in that file.
 
 echo is to add or replace something in a file. To do it write, echo "the content you are replacing or adding to it" > your_file.rb. that will replace your files content with the new content. but if you give it two > instead of one itll just add to what is already there. echo "content" >> my_file.rb

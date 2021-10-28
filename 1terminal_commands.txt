@@ -15,6 +15,8 @@ the controller type to http for you so you don't have to manualy sellect it type
 already created, I was still able to execute adonis make:controller Auth/Login --type=http and it made a new 
 controller in the same folder.
 
+npm install -g update-node: It updates node to the latest version.
+
 npm install npm@latest -g: Updates npm. When there is an error related to npm not being able to
 find a file, this normally saves my life. If this doesn't work, check to see if node is up to date with node -v.
 If it is not, use npm install -g update-node to update node from the terminal. If that doesn't work, then go to 

@@ -24,3 +24,12 @@
 # True
 # >>> serializer.validated_data
 # OrderedDict([('title', 'a title for this thing here'), ('description', 'the fucking description')])
+
+# New terminal here
+# >>> from api.serializers import ArticleSerializer
+# >>> serializer = ArticleSerializer()
+# >>> print(repr(serializer))
+# ArticleSerializer():
+#     id = IntegerField(label='ID', read_only=True)
+#     title = CharField(max_length=100)
+#     description = CharField(style={'base_template': 'textarea.html'})
