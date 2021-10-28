@@ -10,6 +10,9 @@
 # py manage.py startapp app-name makes a new app in your project. Apps are were your projects models, view sets, and migrations are stored.
 # A single project can have many apps
 
+# When you add new apps to the django project you then need to add them to the installed apps list inside the settings file. In the installed
+# apps section just add the new app 'app-name' to the installed apps section
+
 # py manage.py migrate migrates the migrations that were pre configured when making the app. Like the user migrations are made automatically.
 # Migrating your migrations will migrate your new data structure from your models to the database. For example, if you make an article object 
 # with a model class that has the structure of an id description and title you can migrate it. After that you can delete and create articles. 
@@ -52,6 +55,10 @@
 # environment to be always activated but only if your downloading any dependencies so they'll know where to be stored
 
 # Now with the virtual environment activated lets install django so we can create a super user with pip install django
+
+# The rest_framework side of django, literally eveything we need for the backend, isn't going to work endless we install it.
+# Install it with this pip install djangorestframework. With djangorestframework installed you'll need to now add 'rest_framework' to installed
+# apps in order for it to work inside settings 
 
 # To see any of your dependencies you'll need to run pip freeze. This will list all the dependencies in the environment. But if you run pip freeze
 # but your environment isn't activated it will list all the python dependencies ever installed on the computer instead and not the ones in the your
