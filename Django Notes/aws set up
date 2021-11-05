@@ -16,16 +16,8 @@ eb console. Opens the eb console with the browser.
 eb deploy: Deploys your backend to the internet. Do this only after your Production branch with git is up to date.
 
 If there is ever any problem with the aws dependencies upgrading pip will probably fix it: python -m pip install --upgrade pip
-
-
-
-
-
-pip freeze: Add this to Notes with my rest_framework react native tutorial.
-
-
-
-
+ 
+ 
 
 This is how to use aws with the react frontend:
 First check if the git staging branch is up to date with the git pull origin staging command.
