@@ -7,6 +7,8 @@ pip install django: Installs django.
 
 python -m pip install -U Django: Udates django to it's newest version.
 
+py -m django --version: This will show the django version in the terminal.
+
 django-admin startproject project-name: Creates a new django project.
 
 py manage.py startapp project-name: Creates a new app in the django project. An app contains the backends models and migrations and view 
@@ -35,11 +37,6 @@ pip install -r requirements.txt.: Installs dependencies.
 pip install --upgrade pip: I think this updates pip for you.
 
 py manage.py shell: Opens the python shell so that you can use python functions like creating and deleting that data that runs with the backend.
-
-Dependency errors for outdated dependencies. Use these newer dependency versions in requirements.txt:
-psycopg2==2.8.6
-psycopg2-binary==2.8.6
-or psycopg2 new 2.9.1 | 2.8.6
 
 In LG when you delete and reinstall the BE it sometimes throughs an error because the user is in the FE isn't identified.
 to fix this past and run this in the inspect terminal and it'll log you out and redirect you to the login page. Sign in

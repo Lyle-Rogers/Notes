@@ -14,3 +14,13 @@
 // We need to put the app in git then run the git project repository with snack. Go to the snack website
 // here https://snack.expo.dev/ then find were it is you put you git repo and run it with the ios emulater
 // or with androids emulater or the webs emulater as well.
+
+
+
+
+
+// expo init expo-app-name -t tabs: Makes an expo react native application with with tabs or navigation already setup. 
+// tabs sets up the app with preconfigured components, constants, screens, navigation and hooks directories which will 
+// save to much time sense you would normally make those directories yourself and have to remember everything there as 
+// well. Then -t is so that the react native creates the apps files in typescript instead of javascript like it would 
+// do normally.
