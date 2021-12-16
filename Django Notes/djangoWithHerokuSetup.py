@@ -72,11 +72,27 @@
 # Add this project to github and any new changes.
 
 # And make a new app with heroku and connect it with this backends projects github repository and then hit deploy and the backend should be online
-# and working with everything even the automatically made db.sqlite3 database that is created when we created the backend.
+# and working with everything even the automatically made db.sqlite3 database that is created when we created the backend. If the backend gives an
+# error with something like not found or request not found it is fine it's just there because there's no data to be displayed but it'll be fine after
+# we create the serializers with their models and everything for that data.
 
-# heroku creates a 
-
-
-
-
-
+# After posting the backends project to heroku, heroku automatically creates a postgresql database that it hosts that we will definitely need sense
+# the db.sqlite3 database that is created with djangos project is always reset after posting edits or anything from the project to heroku sense that 
+# database is part of the backend itself and whatever data is stored in that database locally is set to the db.sqlite3 database with heroku every time
+# herokus backend project is edited.
+# Get the postgresql databases credentials from heroku by going to settings in heroku selecting reveal config vars and there will be only 1 config var
+# which is the databases credentials for the heroku database. an example of postgresql database credentials bellow:
+#             USER: ends at the :                     PASSWORD: password ends before the @                        HOST: begins after the @           PORT:    NAME:
+# postgres://eytyiydjlrxgybr:6a56404j59gk40f92b388dd588asdfasdj35kj7g4fikf9850412b83e7das0811059gjrk68b572@ec2-31-393-296-32.compute-1.amazonaws.com:5432/d39qyrjjkifgao
+# the postgresql database credentials in settings.py are set up like the example bellow there:
+# DATABASES = { 
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd39qyrjjkifgao',
+#         'HOST': 'ec2-31-393-296-32.compute-1.amazonaws.com', 
+#         'PORT': 5432,
+#         'USER': 'eytyiydjlrxgybr',
+#         'PASSWORD': '6a56404j59gk40f92b388dd588asdfasdj35kj7g4fikf9850412b83e7das0811059gjrk68b572'
+#     }
+# }
+# Your backend and database are now fully setup with heroku and ready to start being used from the internet like a fucking pro I thin.!.!.!.!...!.

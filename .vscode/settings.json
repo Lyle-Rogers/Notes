@@ -4,6 +4,7 @@
     "djangos",
     "gunicorn",
     "gunicorns",
+    "herokus",
     "psycopg",
     "pytz"
   ]
