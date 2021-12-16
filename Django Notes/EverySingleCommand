@@ -28,11 +28,12 @@ pip freeze: Gives a list of all the dependencies in your activated environment. 
 dependency installed on the computer instead of the ones in the virtual environment.
 
 pip freeze > requirements.txt: Makes a file called requirements.txt with a list of every dependency in your virtual environment. This file is where
-aws and other things find the requirements needed for the aplication or you can run a command that install all of the dependencies in this list.
+aws and other things find the requirements needed for the application or you can run a command that install all of the dependencies in this list. and
+I think this adds every dependencies installed on the computer the requirements.txt file and not just the ones in the backends virtual environment.
 
 py manage.py runserver: Runs the back end server.
 
-pip install -r requirements.txt.: Installs dependencies.
+pip install -r requirements.txt: Installs the dependencies in the backends requirements.txt file.
 
 pip install --upgrade pip: I think this updates pip for you.
 

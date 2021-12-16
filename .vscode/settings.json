@@ -1,5 +1,10 @@
 {
   "cSpell.words": [
-    "axios"
+    "axios",
+    "djangos",
+    "gunicorn",
+    "gunicorns",
+    "psycopg",
+    "pytz"
   ]
 }
