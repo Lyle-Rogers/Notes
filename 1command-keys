@@ -18,6 +18,8 @@ ctlr + x: Copy and delete.
 ctrl + z: Will reverse what you did last. Deleting the code you just wrote or undeleting the code
 you just deleted. Get it?
 
+ctrl + y: The opposite of ctrl + z It's redo !
+
 double click: Highlite one word.
 
 triple click: Highlite one row.

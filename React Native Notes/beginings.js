@@ -24,3 +24,13 @@
 // save to much time sense you would normally make those directories yourself and have to remember everything there as 
 // well. Then -t is so that the react native creates the apps files in typescript instead of javascript like it would 
 // do normally.
+
+
+
+
+
+// https://www.youtube.com/watch?v=oorfevovPWw&t=1218s what this YouTube tutorial and setup the react native pre requirements!
+// npx react-native init application_name: Creates a normal react native app not using expo.
+// react-native start 
+// react-native run-android
+// react-native run-ios

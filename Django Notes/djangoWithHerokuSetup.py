@@ -8,7 +8,7 @@
 
 # py manage.py migrate: will migrate the already set up migrations for the users and whatever.
 
-# pip install whitnoise: white noise handelse the backends static files for heroku development and is needed because django is not already
+# pip install whitenoise: white noise handelse the backends static files for heroku development and is needed because django is not already
 # set up to handle static files in production but is preconfigured for the development part.
 
 # add whitnoise 'whitenoise.middleware.WhiteNoiseMiddleware' middleware in the settings.py middleware list above all other middleware
@@ -19,7 +19,7 @@
 
 # pip install psycopg2: installs psycopg which is what connects the api to the server or I think database.
 
-# DEBUG = False: debug false is necessary in production but works fine for development if you need it which I never have.
+# DEBUG = False: debug false is necessary if in production but will send a server not found error in development.
 
 # pip install gunicorn: This is what gunicorns documentation said about it. Gunicorn 'Green Unicorn' is a Python 
 # WSGI HTTP Server for UNIX. It's a pre-fork worker model. The Gunicorn server is broadly compatible with various web frameworks, 
@@ -47,7 +47,7 @@
 # ALLOWED_HOSTS list and even the url heroku gives for this backend like 'the-backend-of-yours.herokuapp.com'. This practically does the same 
 # thing as cors headers but it's already installed and setup in the settings.py file. But when adding a url to the allowed host list, unlike
 # the cors headers list, make sure that there isn't any http:// or trailing / like netflix.com rather than https://netflix.com/ and yes it'll 
-# work I think.
+# work I think. Add '127.0.0.1' if it's in development.
 
 # pip freeze > requirements.txt: puts all your installed pip dependencies in a newly created file for heroku to read and install during deployment.
 # pip freeze will make a list of all the dependencies ever installed on your computer even from old projects. you might not want to add every 
@@ -96,3 +96,9 @@
 #     }
 # }
 # Your backend and database are now fully setup with heroku and ready to start being used from the internet like a fucking pro I thin.!.!.!.!...!.
+
+# Lets start the django projects local server with py manage.py runserver. If you are making the django app for a react native project you need to add  
+# your computers IP address to the end of the command. React native won't run with a local server and need your computers IP address instead.  
+# The computer IP address of yours is in wifi settings. Mine is 192.168.10.44, but it needs :8000 at the end of the IP address. Which might look
+# like py manage.py runserver 192.168.10.44:8000. After this the server will be running on http://192.168.10.44:8000/ if your using the IP address
+# or else if your using plain local host to host the server it'll be at http://127.0.0.1:8000/

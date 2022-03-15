@@ -32,7 +32,7 @@ from .models import Article
 class ArticleSerializer(serializers.ModelSerializer):
   class Meta: # Meta basically means static data. Metadata is static data that describes an object kinda like an object description.
     model = Article # This is the serializers model.
-    fields = ('id', 'title', 'description') # These are the fields the serializer is serializing from this model.
+    fields = ('id', 'title', 'description') # These are the fields the serializer is serializing from this model. This is what the rest framework docs say about the id field: You will need to add an explicit id field to the instance serializer. The default implicitly-generated id field is marked as read_only. This causes it to be removed on updates. Once you declare it explicitly, it will be available in the list serializer's update method.
 # fields = ('__all__') is the normal way to do this. It will set the fields to the serializer to all the fields in the model class.
 
 

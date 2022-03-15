@@ -7,13 +7,24 @@ git checkout -b lyle: This creates a new branch named lyle.
 
 git pull origin branch-name: Pulls the code from the branch given and replaces the local code with it. This is often
 used instead of git merge for its simplisity. So you can chechout into a branch and git pull onother branch then git 
-push to the new branch to merge the two.
+push to the new branch to merge the two. Look bellow to undo a pull.
+
+git push --force: Be careful this will force a push request even if it wasn't meant to. The reason I use it is If
+I fucked up and for some stupid reason can't fix an error, I can revert to an old commit, change the code without
+fucking it up again, and force git to push my old edited commit as head. And this will replace all the newer commits
+ahead of this older edited commit with the edited older commit. watch the fuck out with this!
+
+git reset --hard bc7bb49ad2d42f68f19f0bdd6d4af48b3675b170: before every pull request you are required to commit your
+branch first. If you wish to reset your application to the local code before your pull request, run this with the last
+commit you made before pulling.
+
+git fetch + git merge is literally the same thing as git pull!
 
 git clone https://github.com/adri.....etc: Clones the git repo given. You may need to rap the url in purenthasies "".
 If you clone your own repo and you are signed in to git on the browser then it will automatically set your credentials
 for you.
 
-git remote -v: This shows http verson of the directory you are pushing to.
+git remote -v: This shows http version of the directory you are pushing to.
 
 git remote set-url --add --push origin https://github.com/a......etc: This changes the git repository you are to 
 pushing to, to the one given. git remote add origin https://etc.....git: Also adds a new you repository url.
@@ -25,7 +36,7 @@ git push --set-upstream origin branch-name: This sets your upstream to a branch.
 after cloning a git repo.
 
 git merge origin branch-name: This will merge the branch I am on with the branch name given. Make sure to git commit 
-first and be carfule with this comand. Doing the other option given above in git pull is also available. Actualy I'm
+first and be carfule with this command. Doing the other option given above in git pull is also available. Actualy I'm
 just talking shit, it's easy!
 
 git fetch: Refreshes your branches so that git is up to date with your online aplication. Like if a new branch was 
