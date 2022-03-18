@@ -995,6 +995,8 @@ export default class IUsedLinkingAlready extends Component {
     );
   }
 }
+// a website to get the values to every section of the android settings so we can open 1 of them with linking:
+// https://developer.android.com/reference/android/provider/Settings
 
 // Macbook Pro i7 spacegrey ratina
 // https://www.amazon.com/Apple-MacBook-Retina-MLH32LL-Renewed/dp/B078BSQDPK/ref=sr_1_9?keywords=macbook&pd_rd_r=77f598d3-19a8-430c-9396-56edb9c2e707&pd_rd_w=qwmny&pd_rd_wg=RrmHC&pf_rd_p=4fa0e97a-13a4-491b-a127-133a554b4da3&pf_rd_r=4BT76A63YQV3S8YRMTHD&qid=1642209367&sr=8-9
