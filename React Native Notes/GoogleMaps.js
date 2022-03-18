@@ -921,29 +921,80 @@
 //   },
 // ];
 
-export const StarLightTheme = [
-  {
-    featureType: "all",
-    elementType: "all",
-    stylers: [
-      {
-        invert_lightness: true,
-      },
-      {
-        saturation: 10,
-      },
-      {
-        lightness: 30,
-      },
-      {
-        gamma: 0.5,
-      },
-      {
-        hue: "#00aaff",
-      },
-    ],
-  },
-];
+// export const StarLightTheme = [
+//   {
+//     featureType: "all",
+//     elementType: "all",
+//     stylers: [
+//       {
+//         invert_lightness: true,
+//       },
+//       {
+//         saturation: 10,
+//       },
+//       {
+//         lightness: 30,
+//       },
+//       {
+//         gamma: 0.5,
+//       },
+//       {
+//         hue: "#00aaff",
+//       },
+//     ],
+//   },
+// ];
+
+// How to open another app and even websites with linking
+// Instructions on how to open basic apps and even add things to them like the normal calling app with a number already inside it:
+import React, { Component } from "react";
+import { View, Linking, Button } from "react-native";
+import styles from "../styles/IUsedLinkingAlready";
+
+export default class IUsedLinkingAlready extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <View style={styles.linkingAlreadyContainer}>
+        <Button
+          title="IDidLinking"
+          onPress={() => {
+            // Calling a specific number:
+            Linking.openURL("tel:6988619781");
+            // texting a specific number with a text:
+            Linking.openURL(
+              "sms:number=6988619781?body=I like myself a linking sms",
+            );
+            // Send an email to a person with specific text in it:
+            Linking.openURL(
+              "mailto:theusersemail@fuckme.com?subject=A lit Subject here!&body=I like this email's texting skills",
+            );
+            // even open the settings:
+            Linking.openSettings();
+            // opens whatsapp with a message pre written for a specific phone number:
+            Linking.openURL(
+              "whatsapp://send?phone=6988619781&text=I like this whatsapp text",
+            );
+            // and google maps:
+            Linking.openURL("https://www.google.com/maps");
+            // search a specific place in the maps
+            Linking.openURL(
+              "https://www.google.com/maps/search/?api=1&query=Japan",
+            );
+            // and even youtube:
+            Linking.openURL("https://www.youtube.com/watch?v=aVideosUrl");
+            // and fucking facebook of course:
+            Linking.openURL("fb://profile/");
+          }}
+        />
+      </View>
+    );
+  }
+}
 
 // Macbook Pro i7 spacegrey ratina
 // https://www.amazon.com/Apple-MacBook-Retina-MLH32LL-Renewed/dp/B078BSQDPK/ref=sr_1_9?keywords=macbook&pd_rd_r=77f598d3-19a8-430c-9396-56edb9c2e707&pd_rd_w=qwmny&pd_rd_wg=RrmHC&pf_rd_p=4fa0e97a-13a4-491b-a127-133a554b4da3&pf_rd_r=4BT76A63YQV3S8YRMTHD&qid=1642209367&sr=8-9
