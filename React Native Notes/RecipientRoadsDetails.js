@@ -973,7 +973,8 @@ export default class IUsedLinkingAlready extends Component {
             Linking.openURL(
               "mailto:theusersemail@fuckme.com?subject=A lit Subject here!&body=I like this email's texting skills",
             );
-            // even open the settings:
+            // even open your apps specific settings where your apps permissions, location permission, and notification settings are and works
+            // on ios and android:
             Linking.openSettings();
             // opens whatsapp with a message pre written for a specific phone number:
             Linking.openURL(
@@ -989,6 +990,9 @@ export default class IUsedLinkingAlready extends Component {
             Linking.openURL("https://www.youtube.com/watch?v=aVideosUrl");
             // and fucking facebook of course:
             Linking.openURL("fb://profile/");
+            // I prefer to use openSettings(). This only works on android and does not open your specific app
+            // settings but will open all the devices apps notification settings:
+            Linking.sendIntent("android.settings.LOCATION_SOURCE_SETTINGS");
           }}
         />
       </View>
