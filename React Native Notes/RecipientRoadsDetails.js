@@ -29,8 +29,31 @@
 // npm install react-native-gesture-handler react-native-reanimated
 // if your get an error after installing react-native-gesture-handler do what this guide says in android!
 // https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/
+// The link there on top didn't help me but I'm helping fix the Gradle update problem on slack with these people.
+// https://stackoverflow.com/questions/71771423/react-native-compilejava-task-current-target-is-1-8-and-compilekotlin-tas
+// commands that are possibly helpful.
+// cd android
+// ./gradlew --version
+// ./gradlew clean
+// React Navigation Developer tools installation guide. I'm using these devtools instead because the normal devtools don't
+// work with react navigation's drawer. installation: https://reactnavigation.org/docs/devtools/
 
-// This install vecoter icons. The google maps uber cloned tutorial uses this for icons in react native like font awesome in react!
+// I was having this very same problem here. I tried @MouTio's suggestion and updated the distributionUrl to 7.4.2 at
+// Project-Name\android\gradle\wrapper\gradle-wrapper.properties but that still gave me this error here:
+// > Task :react-native-gradle-plugin:compileKotlin FAILED
+// 'compileJava' task (current target is 1.8) and 'compileKotlin' task (current target is 11) jvm targeta version.
+// 1 actionable task: 1 executed
+
+// FAILURE: Build failed with an exception.
+
+// * What went wrong:
+// Execution failed for task ':react-native-gradle-plugin:compileKotlin'.
+// > Failed to query the value of task ':react-native-gradle-plugin:compileKotlin' property 'compilerRun
+//    > Kotlin could not find the required JDK tools in the Java installation. Make sure Kotlin compilat
+//  However the error was fixed after running this choco install -y nodejs-lts openjdk11 with a command line using administration privileges.
+// and don't forget to rerun npm run android with a refreshed terminal
+
+// This install vector icons. The google maps uber cloned tutorial uses this for icons in react native like font awesome in react!
 // npm i react-native-vector-icons
 // Vector icons directory and website
 // https://oblador.github.io/react-native-vector-icons/
@@ -1001,6 +1024,22 @@ export default class IUsedLinkingAlready extends Component {
 }
 // a website to get the values to every section of the android settings so we can open 1 of them with linking:
 // https://developer.android.com/reference/android/provider/Settings
+
+// a potential way to check if geolocation is enabled in ios
+if (Platform.OS === "ios") {
+  const auth = await Geolocation.requestAuthorization("whenInUse");
+  if (auth === "granted") {
+    // do something if granted...
+  }
+}
+// This is the way I do it I think!
+if (Platform.OS === "ios") {
+  Geolocation.requestAuthorization().then((res) => {
+    if (res === "disabled") {
+      this.setState({ geolocationIsGranted: false });
+    }
+  });
+}
 
 // Macbook Pro i7 spacegrey ratina
 // https://www.amazon.com/Apple-MacBook-Retina-MLH32LL-Renewed/dp/B078BSQDPK/ref=sr_1_9?keywords=macbook&pd_rd_r=77f598d3-19a8-430c-9396-56edb9c2e707&pd_rd_w=qwmny&pd_rd_wg=RrmHC&pf_rd_p=4fa0e97a-13a4-491b-a127-133a554b4da3&pf_rd_r=4BT76A63YQV3S8YRMTHD&qid=1642209367&sr=8-9
