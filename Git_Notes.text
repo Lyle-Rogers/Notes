@@ -45,3 +45,5 @@ created recently, git fetch will fetch that data so that your local aplication i
 git log: Shows your commit history. Each commit will give you a name and a commit id.
 
 git checkout commit-id-12feg3435: To switch to an old commit.
+
+git commit -a -m "your commit message!": git add .'s and also will git commit with a message at the same time!
