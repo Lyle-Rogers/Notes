@@ -243,6 +243,19 @@ export default App;
 // npx react-native run-android --variant=release
 // This runs your app in its release format for testing things
 
-// C:\Program Files\OpenJDK\openjdk-11.0.14.1_1
+// I had this error: > Task :app:processDebugMainManifest FAILED and I fixed it by adding: android:exported="true"
+// to the AndroidManifest.xml files activity variable thingy. Like this e.g.:
+// <activity
+//   ...
+//   android:exported="true">
+//   ...
+// </activity>
+// it literally took me like 3 days to fix this error!
 
-// C:\Program Files\Java\jdk-18.0.1
+// react native's statusBar:
+<StatusBar
+  animated={true}
+  backgroundColor="rgb(79, 79, 79)"
+  barStyle="dark-content"
+  showHideTransition="slide"
+/>;

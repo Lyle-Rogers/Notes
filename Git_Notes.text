@@ -44,6 +44,11 @@ created recently, git fetch will fetch that data so that your local aplication i
 
 git log: Shows your commit history. Each commit will give you a name and a commit id.
 
-git checkout commit-id-12feg3435: To switch to an old commit.
+git checkout commit-id-12feg3435: To switch to an old commit. and then: git switch -c <new-branch-name> to retain your 
+new commits in a new branch!
 
 git commit -a -m "your commit message!": git add .'s and also will git commit with a message at the same time!
+
+Deploying a backend or website to heroku with github guide: https://devcenter.heroku.com/articles/git
+To deploy the master branch or main branch run: git push heroku main
+To push a different branch to heroku that isn't the master or main branches, run: git push heroku production:master
