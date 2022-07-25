@@ -2,12 +2,14 @@
   "cSpell.words": [
     "axios",
     "djangos",
+    "dotenv",
     "frontends",
     "gunicorn",
     "gunicorns",
     "herokus",
     "preconfigured",
     "psycopg",
-    "pytz"
+    "pytz",
+    "runstatic"
   ]
 }

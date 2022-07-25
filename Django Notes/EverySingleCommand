@@ -49,3 +49,5 @@ model data.
 py manage.py migrate: After the migration files are made. This command migrates the new migrations to the database.
 
 py manage.py showmigrations: Shows the migrations that are migrated in the terminal.
+
+py manage.py collectstatic: Makes static files in the givin directory inside settings.py, if setup right.
