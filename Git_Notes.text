@@ -6,7 +6,7 @@ I am now in the staging branch. And it also changes all your local code to that 
 git checkout -b lyle: This creates a new branch named lyle.
 
 git pull origin branch-name: Pulls the code from the branch given and replaces the local code with it. This is often
-used instead of git merge for its simplisity. So you can chechout into a branch and git pull onother branch then git 
+used instead of git merge for its simplicity. So you can checkout into a branch and git pull another branch then git 
 push to the new branch to merge the two. Look bellow to undo a pull.
 
 git push --force: Be careful this will force a push request even if it wasn't meant to. The reason I use it is If
@@ -38,6 +38,10 @@ after cloning a git repo.
 git merge origin branch-name: This will merge the branch I am on with the branch name given. Make sure to git commit 
 first and be carfule with this command. Doing the other option given above in git pull is also available. Actualy I'm
 just talking shit, it's easy!
+
+git reset --merge: Resets a merge back to the original state.
+
+git restore .: This will delete all changes back to the previous commit. Be warned. Don't loose your work.
 
 git fetch: Refreshes your branches so that git is up to date with your online aplication. Like if a new branch was 
 created recently, git fetch will fetch that data so that your local aplication is up to date with your online aplication. 

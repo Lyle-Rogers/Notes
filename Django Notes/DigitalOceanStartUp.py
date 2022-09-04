@@ -3,30 +3,59 @@
 
 # settings.py
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-_)(ka#)py7^d%79x)+*mr$=v%%1w2ii0gb%+1&7!u+%!_1b)dp')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-_)(ka#)py7^d%79x)+*mr$=v%%1w2ii0gb%+1&7!u+%!_1b)dp')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.environ.get("DEBUG")) == "1"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1', 
+    '192.168.10.44',
+]
 
 if not DEBUG:
-    ALLOWED_HOSTS += [os.environ.get('DJANGO_ALLOWED_HOSTS')]
-    print(ALLOWED_HOSTS)
+    ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1', 
+    'http://192.168.10.44',
+]
+
+if not DEBUG:
+    CORS_ALLOWED_ORIGINS = [os.environ.get('CORS_ALLOWED_ORIGINS')]
 
 # .env
-DJANGO_SECRET_KEY=%f97-%h=$rr2j3=7idlia3l1np*012ma$fgjhb#)e3dk7&3cka
+SECRET_KEY=%f97-%h=$rr2j3=7idlia3l1np*012ma$fgjhb#)e3dk7&3cka
 DEBUG=1
-DJANGO_ALLOWED_HOSTS='127.0.0.1', '192.168.10.44', '192.168.10.45'
+ALLOWED_HOSTS='backend.nationmech.com'
+CORS_ALLOWED_ORIGINS='https://backend.nationmech.com'
 
+# To make .env work we have to import it in manage.py
+...
+import dotenv
+
+def main():
+    """Run administrative tasks."""
+    dotenv.read_dotenv() # add this line to this section here
+    ...
+# And also don't forget to install the dotenv dependency with: pip install django-dotenv 
 
 # Prepare Django for DigitalOcean App Platform - Python & Django 3.2 Tutorial Series:
 # https://www.youtube.com/watch?v=M9aCNYM_4vQ&list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTEXgL&index=32
 
 # use psycopg2 instead of psycopg2-binary. psycopg2-binary is outdated
 
+# Make a file in the root directory named runtime.txt and place your projects python virgin there
+# python-3.10.2
+
 # generate django secret keys
 # python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+
+# settings.py
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-_)(ka#)py7^d%79x)+*mr$=v%%1w2ii0gb%+1&7!u+%!_1b)dp')
+
+# .env
+SECRET_KEY=%f97-%h=$rr2j3=7idlia3l1np*012ma$fgjhb#)e3dk7&3cka
 
 # settings.py
 DATABASES = {
