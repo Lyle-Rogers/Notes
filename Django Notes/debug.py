@@ -13,7 +13,11 @@ MIDDLEWARE = [
 ]
 
 TEMPLATES = [
-  'APP_DIRS': True,
+    {
+      ...
+      'APP_DIRS': True,
+      ...
+    },
 ]
 
 INTERNAL_IPS = [
