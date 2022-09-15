@@ -48,6 +48,8 @@ created recently, git fetch will fetch that data so that your local aplication i
 
 git log: Shows your commit history. Each commit will give you a name and a commit id.
 
+gh auth login: Login to github in the terminal. A certain git packing thing will need to be downloaded for this to work. And it isn't working.
+
 git checkout commit-id-12feg3435: To switch to an old commit. and then: git switch -c <new-branch-name> to retain your 
 new commits in a new branch!
 
