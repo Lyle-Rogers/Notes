@@ -48,11 +48,13 @@ created recently, git fetch will fetch that data so that your local aplication i
 
 git log: Shows your commit history. Each commit will give you a name and a commit id.
 
+Login to github with the terminal:
 git config --global user.name "your_username"
-
 git config --global user.email "your_email_address@example.com"
-
+git config --global credential.username "your_username"
 git config --global --list
+You'll be prompted for your password after your next git push
+If the git remotes are wrong it will fail.
 
 gh auth login: Login to github in the terminal. A certain git packing thing will need to be downloaded for this to work. And it isn't working.
 
