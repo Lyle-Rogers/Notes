@@ -3,6 +3,8 @@
 // the best lottie files animations of mine:
 
 // lottie animated loaders:
+// Nation Mechs main animated loader:
+// https://lottiefiles.com/96142-dots-loader
 // https://lottiefiles.com/94745-loader-neuralink
 // https://edit.lottiefiles.com/?src=https%3A%2F%2Fassets8.lottiefiles.com%2Fpackages%2Flf20_2Zgw6g.json
 // https://lottiefiles.com/71379-loader-with-code-000048

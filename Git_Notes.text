@@ -53,10 +53,12 @@ git config --global user.name "your_username"
 git config --global user.email "your_email_address@example.com"
 git config --global credential.username "your_username"
 git config --global --list
+and --local is for your local project and --global is for all projects on your machine
 You'll be prompted for your password after your next git push
 If the git remotes are wrong it will fail.
 
-gh auth login: Login to github in the terminal. A certain git packing thing will need to be downloaded for this to work. And it isn't working.
+gh auth login: Login to github with GitLab in the terminal. A certain git package thing will need to be downloaded for this to 
+work. And it isn't working. Fuck !
 
 git checkout commit-id-12feg3435: To switch to an old commit. and then: git switch -c <new-branch-name> to retain your 
 new commits in a new branch!

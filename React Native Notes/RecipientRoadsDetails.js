@@ -93,11 +93,16 @@
 // inside src create an assets folder if you haven't already. Create a fonts folder inside that folder and any fonts that you want
 // to use, download from https://fonts.google.com/ and unzip them and add their files inside the fonts directory. Every time you add
 // a font, run react-native link in the terminal and it the fonts will be added to the android and ios folders just by doing that.
-// fonts are half a mb and you will have to go into the android and ios folder manually if you with to delete them so be carful.
+// fonts are half a mb and you will have to go into the android and ios folder manually if you wish to delete them so be carful.
 // to use a font copy the file name without the .ttf and inside a texts styles add fontFamily: "font-name" and it should work fine.
 // when a font doesn't work it will if you rename the fonts file to its real name, that you can get when you open the fonts file,
 // and then rerun react-native link and it will work.
 // To stop an androids default font size from resizing your texts, ad allowFontScaling={false} inside text components.
+// Maybe allowFontScaling={false} doesn't work. The best way stop a smartphones default font from resizing or changing your text, is by not
+// adding fontWeight to the texts styles. To change a text with a font family's styles, redownload that font with the right font size you seek
+// and use it instead and maybe delete the older 1.
+// Nation Mech's app name's font family is this:
+// https://fonts.google.com/specimen/Kanit?thickness=9&preview.text=Nation%20Mech&preview.text_type=custom
 
 // Google Map themes:
 // website with thousands of themes and I think the best and a theme editer
@@ -974,7 +979,7 @@ import React, { Component } from "react";
 import { View, Linking, Button } from "react-native";
 import styles from "../styles/IUsedLinkingAlready";
 
-export default class IUsedLinkingAlready extends Component {
+export class IUsedLinkingAlready extends Component {
   constructor() {
     super();
     this.state = {};
@@ -1040,6 +1045,67 @@ if (Platform.OS === "ios") {
     }
   });
 }
+
+// Retrying axios calls for when they fail like a network error or something.
+// Npm tutorial: https://www.npmjs.com/package/axios-retry
+// Install axios-retry: npm install axios-retry
+// This package works for react and react native like axios does.
+import React from "react";
+import { Text, TouchableOpacity } from "react-native";
+import axios from "axios";
+import axiosRetry from "axios-retry";
+
+axiosRetry(axios, {
+  // Any axios calls made will now have axios retry added in it in any file that is
+  // currently focused while this file is focused.
+  retryCondition: () => true, // It is required or it will fail indefinitely! I also idk.
+  retries: 19, // How many times it can retry our api calls before it fails.
+  retryDelay: axiosRetry.exponentialDelay, // This will double the time between every delay until the retry count is reached.
+  // retryDelay: () => 7000, // The request is delayed by 7 seconds before retrying until the retry count is reached.
+});
+
+export const AxiosRetry = () => {
+  function apiCall() {
+    axios // every last axios request we make in these focused files have this added
+      .get(url)
+      .then(() => console.log("api call success"))
+      .catch(() => console.log("api call failed so fuck yourself"));
+  }
+
+  return (
+    <TouchableOpacity onPress={() => apiCall()}>
+      <Text>AxiosRetry</Text>
+    </TouchableOpacity>
+  );
+};
+
+// Add axios-retry to App.js and all the axios calls in the rest of the app will be automatically handled! An example:
+import "react-native-gesture-handler";
+
+import React from "react";
+import { SafeAreaView, StatusBar } from "react-native";
+import axios from "axios";
+import axiosRetry from "axios-retry";
+
+import Sidebar from "./src/screens/Sidebar";
+
+axiosRetry(axios, {
+  // If other files have axios capitalized, even though it's not in here, it's fine it'll work.
+  retryCondition: () => true,
+  retries: 26,
+  retryDelay: axiosRetry.exponentialDelay,
+});
+
+const App = () => {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar backgroundColor="black" barStyle="light-content" />
+      <Sidebar />
+    </SafeAreaView>
+  );
+};
+
+export default App;
 
 // Macbook Pro i7 spacegrey ratina
 // https://www.amazon.com/Apple-MacBook-Retina-MLH32LL-Renewed/dp/B078BSQDPK/ref=sr_1_9?keywords=macbook&pd_rd_r=77f598d3-19a8-430c-9396-56edb9c2e707&pd_rd_w=qwmny&pd_rd_wg=RrmHC&pf_rd_p=4fa0e97a-13a4-491b-a127-133a554b4da3&pf_rd_r=4BT76A63YQV3S8YRMTHD&qid=1642209367&sr=8-9
