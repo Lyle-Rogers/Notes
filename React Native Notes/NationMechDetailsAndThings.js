@@ -1047,6 +1047,7 @@ if (Platform.OS === "ios") {
 }
 
 // Retrying axios calls for when they fail like a network error or something.
+// React Native navigation docs on this: https://reactnavigation.org/docs/function-after-focusing-screen/
 // Npm tutorial: https://www.npmjs.com/package/axios-retry
 // Install axios-retry: npm install axios-retry
 // This package works for react and react native like axios does.
@@ -1106,6 +1107,28 @@ const App = () => {
 };
 
 export default App;
+
+// How to refresh a navigation screen when a user navigates back:
+// https://reactnavigation.org/docs/function-after-focusing-screen/
+import React, { useEffect } from "react";
+
+export const AScreen = ({ navigation }) => {
+  function AnApiCallThatRetrievesNewData() {
+    // An api request or whatever.
+  }
+
+  // When navigation is updated with new data from any screen, this checks if
+  // the new data says that if this screen is focused or not and to do this if it is!
+  useEffect(() => {
+    const refreshOnFocus = navigation.addListener("focus", () =>
+      AnApiCallThatRetrievesNewData(),
+    );
+
+    return refreshOnFocus;
+  }, [navigation]);
+
+  return;
+};
 
 // Macbook Pro i7 spacegrey ratina
 // https://www.amazon.com/Apple-MacBook-Retina-MLH32LL-Renewed/dp/B078BSQDPK/ref=sr_1_9?keywords=macbook&pd_rd_r=77f598d3-19a8-430c-9396-56edb9c2e707&pd_rd_w=qwmny&pd_rd_wg=RrmHC&pf_rd_p=4fa0e97a-13a4-491b-a127-133a554b4da3&pf_rd_r=4BT76A63YQV3S8YRMTHD&qid=1642209367&sr=8-9

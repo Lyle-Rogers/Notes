@@ -57,6 +57,9 @@ and --local is for your local project and --global is for all projects on your m
 You'll be prompted for your password after your next git push
 If the git remotes are wrong it will fail.
 
+git config --local --remove-section branch.main: Will remove the branch.main sections out of gits local config. It's for 
+fixing a git error that involves having 2 versions of these branch.main sections when you just need 1
+
 gh auth login: Login to github with GitLab in the terminal. A certain git package thing will need to be downloaded for this to 
 work. And it isn't working. Fuck !
 
