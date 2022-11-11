@@ -15,8 +15,16 @@ the controller type to http for you so you don't have to manualy sellect it type
 already created, I was still able to execute adonis make:controller Auth/Login --type=http and it made a new 
 controller in the same folder.
 
+choco: find choco's local version.
+choco upgrade chocolatey: In an administrative command prompt run this and it will upgrade choco to it's latest version.
+
+node -v: will check your current node version.
 npm install -g update-node: It updates node to the latest version.
 
+npm install --global yarn: It updates yarn to the latest version if you downloaded yarn with npm.
+choco upgrade yarn: In an administrative terminal will update yarn to its latest version if you installed yarn with chocolatey.
+
+npm -v: checks npm's version.
 npm install npm@latest -g: Updates npm. When there is an error related to npm not being able to
 find a file, this normally saves my life. If this doesn't work, check to see if node is up to date with node -v.
 If it is not, use npm install -g update-node to update node from the terminal. If that doesn't work, then go to 
@@ -26,6 +34,9 @@ because you are having npm errors. So just run npm i it'll update or download ev
 
 npm i: Installs all your dependencies. It can help solve wierd errors too, if a dependency wasn't 
 installed properly and is crashing your site.
+
+npm install --legacy-peer-deps libraryName: Installs legacy dependencies or something if the newer versions of npm are 
+throwing errors for any reason.
 
 heroku git:remote -a appName: Will link a heroku app that is already created, to your local project.
 

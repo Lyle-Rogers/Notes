@@ -165,14 +165,14 @@ export default App;
 // don't run this command endless your sure the upload key fields you enter are the fields you wan't you'r
 // app to be stuck with maybe for ever. Save the upload key's password. If you ever forget it play store
 // won't allow you to publish updates to your app!
-// Just change the required fields in this upload key generator command to match your app before submittin.
+// Just change the required fields in this upload key generator command to match your app before submitting.
 // first cd android & cd app and then run the command bellow just after changing my-key-alias and my-upload-key
 // to your react apps directory name or apk name:
 // keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 // https://reactnative.dev/docs/signed-apk-android
 // after you've submitted, the key file will be generated in the app folder
 
-// similar in https://reactnative.dev/docs/signed-apk-android edit this file ~/.gradle/gradle.properties or android/gradle.properties,
+// similar in https://reactnative.dev/docs/signed-apk-android edit this file android/gradle.properties or android/gradle.properties,
 // and add the following (replace ***** with the correct keystore password, alias and key password),
 // I just put it in /android/gradle.properties
 // MYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
