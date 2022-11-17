@@ -247,7 +247,7 @@ export default App;
 // to the AndroidManifest.xml files activity variable thingy. Like this e.g.:
 // <activity
 //   ...
-//   android:exported="true">
+//   android:exported="true"
 //   ...
 // </activity>
 // it literally took me like 3 days to fix this error!

@@ -150,3 +150,6 @@
 //         maven { url 'https://www.jitpack.io' }
 //     }
 // }
+
+// React native 0.70.0 throws an error when I create an apk without this command here.
+// ./gradlew app:assembleRelease -x bundleReleaseJsAndAssets
