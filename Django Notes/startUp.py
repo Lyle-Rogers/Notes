@@ -1,7 +1,48 @@
+# Install python with: https://www.python.org/downloads/.
+
+# python -m pip install django: Installs django that comes with the django-admin cmd in the terminal. Install this globally without using a 
+# virtual environment.
+
+# django-admin startproject <project-name>: Makes a python django project named whatever!
+
+# cd <project-name>: That is fucking obvious.
+
+# python -m venv env: Creates a python environment where dependencies are installed.
+
+# ./env/scripts/activate: This activates the virtual environment and because it's activated all pip dependencies will 
+# be installed in the virtual environment. You can see if it's active if it's name is at the beginning of the terminal.
+# and it's name is (env)!
+
+# All python dependencies are global so make sure that the environment is activated first or the dependencies will stay on your computer.
+
+# deactivate: This cmd will deactivate the virtual environment.
+
+# python -m pip freeze > requirements.txt: Will place the name and version of all the dependencies in your environment, if it's active, 
+# in a requirements.txt file it will create. If your environment is not active, it'll place all your global dependencies in it instead.
+# The requirements.txt file will be created in your local directory.
+
+# python -m pip install -r requirements.txt: Installs your dependencies in the requirements.txt in an activated environment or globally.
+
+# py manage.py startapp api: Starts an app in your project name api. Api is my preferred name.
+
+
+
+
+# 
+# 
+# 
+#                               This is an older tutorial but very useful:
+# 
+# 
+# 
+
 # First get the latest release of python from its own website at https://www.python.org/downloads/. After pip and django-admin should just work with
 # everything. If not figure out how to get them working with you computer. It should be very simple and  whatever
 
-# django-admin should be working now to create a new django app with this: django-admin startproject project-name
+# Django can be installed easily using pip . In the command prompt, execute the following command: pip install django . This 
+# will download and install Django. After the installation has completed, you can verify your Django installation by executing 
+# django-admin --version in the command prompt.
+# I think this installs Django in a global environment for pip
 
 # cd into the new django project
 
