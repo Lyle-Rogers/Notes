@@ -6,7 +6,7 @@
 
 # >>> from api.models import Article
 # >>> from api.serializers import ArticleSerializer
-# >>> from rest_framework.renderers import JSONRenderer 
+# >>> from rest_framework.renderers import JSONRenderer
 # >>> from rest_framework.parsers import JSONParser
 # >>> a = Article(title = "a title for this thing here", description = "the fucking description")
 # >>> a.save()
@@ -18,7 +18,7 @@
 # b'{"title":"a title for this thing here","description":"the fucking description"}'
 # >>> import io
 # >>> stream = io.BytesIO(json)
-# >>> data = JSONParser().parse(stream) 
+# >>> data = JSONParser().parse(stream)
 # >>> serializer = ArticleSerializer(data=data)
 # >>> serializer.is_valid()
 # True

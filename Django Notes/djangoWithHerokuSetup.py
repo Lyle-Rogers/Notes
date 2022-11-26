@@ -2,7 +2,7 @@
 
 # pip install djangorestframework: installs djangos restframework in your new django project.
 # then add 'rest_framework' to the installed apps.
- 
+
 # py manage.py startapp newApiAppTittle: creates a new api in your backend I'd like to name it api or even backend-api or similar.
 # add the new api title to the installed apps of the settings.py file.
 
@@ -21,17 +21,17 @@
 
 # DEBUG = False: debug false is necessary if in production but will send a server not found error in development.
 
-# pip install gunicorn: This is what gunicorns documentation said about it. Gunicorn 'Green Unicorn' is a Python 
-# WSGI HTTP Server for UNIX. It's a pre-fork worker model. The Gunicorn server is broadly compatible with various web frameworks, 
-# simply implemented, light on server resources, and fairly speedy. I know that extremely complicated but what it does is handles what 
+# pip install gunicorn: This is what gunicorns documentation said about it. Gunicorn 'Green Unicorn' is a Python
+# WSGI HTTP Server for UNIX. It's a pre-fork worker model. The Gunicorn server is broadly compatible with various web frameworks,
+# simply implemented, light on server resources, and fairly speedy. I know that extremely complicated but what it does is handles what
 # happens between django and the user which basically means it's just the server that's pretty fast even.
 
 # pip install django-cors-headers: using cors header allows u to make a list of the urls able to access the backend or even allow all. without
 # it, it basically throws an error like CORS policy: No ‘Access-Control-Allow-Origin’ header is present on the requested resource and that is
 # fucking annoying.
-# Then add 'corsheaders.middleware.CorsMiddleware' to the middleware list above everything else and idk but probably not above the security 
+# Then add 'corsheaders.middleware.CorsMiddleware' to the middleware list above everything else and idk but probably not above the security
 # middleware but idk.
-# And then add 'corsheaders' to the list of installed apps as well and then you can create the new cors headers list of allowed urls. 
+# And then add 'corsheaders' to the list of installed apps as well and then you can create the new cors headers list of allowed urls.
 # add any and every url that connects to the backend to this cors allowed origins list at the bottom so they will have permission to
 # access the backend from the backends frontend part! Make this allowed headers list right above this installed apps list in the settings.py file.
 # CORS_ALLOWED_ORIGINS = [
@@ -43,15 +43,15 @@
 # CORS_ORIGIN_ALLOW_ALL = True: This allows every frontend url in existence to access the backend. be carful you may hacker attacks using this because
 # this will give them complete access to your database from this api here.
 
-# And similar to the cors headers list above we need to add the same urls from the cors allowed origins list above in the backends settings.py files 
-# ALLOWED_HOSTS list and even the url heroku gives for this backend like 'the-backend-of-yours.herokuapp.com'. This practically does the same 
+# And similar to the cors headers list above we need to add the same urls from the cors allowed origins list above in the backends settings.py files
+# ALLOWED_HOSTS list and even the url heroku gives for this backend like 'the-backend-of-yours.herokuapp.com'. This practically does the same
 # thing as cors headers but it's already installed and setup in the settings.py file. But when adding a url to the allowed host list, unlike
-# the cors headers list, make sure that there isn't any http:// or trailing / like netflix.com rather than https://netflix.com/ and yes it'll 
+# the cors headers list, make sure that there isn't any http:// or trailing / like netflix.com rather than https://netflix.com/ and yes it'll
 # work I think. Add '127.0.0.1' if it's in development.
 
 # pip freeze > requirements.txt: puts all your installed pip dependencies in a newly created file for heroku to read and install during deployment.
-# pip freeze will make a list of all the dependencies ever installed on your computer even from old projects. you might not want to add every 
-# dependency that's even from other projects your project so remove all the unnecessary dependencies from the requirements.txt file and 
+# pip freeze will make a list of all the dependencies ever installed on your computer even from old projects. you might not want to add every
+# dependency that's even from other projects your project so remove all the unnecessary dependencies from the requirements.txt file and
 # here's a list of all the dependencies required for a new has nothing yet project:
 # Django==4.0
 # django-cors-headers==3.7.0
@@ -61,7 +61,7 @@
 # pytz==2021.1
 # sqlparse==0.4.1
 # whitenoise==5.3.0
-# using pip freeze > requirements.txt is still required to get the correct dependency versions from your computer that might need to be updated 
+# using pip freeze > requirements.txt is still required to get the correct dependency versions from your computer that might need to be updated
 # eventually and the versions here in this list might get outdated in the near future just take away the unnecessary dependencies that aren't needed.
 
 # we need to add a file that's named Procfile in the root of your project which is the containing folder of the project that directs gunicorn to the
@@ -77,7 +77,7 @@
 # we create the serializers with their models and everything for that data.
 
 # After posting the backends project to heroku, heroku automatically creates a postgresql database that it hosts that we will definitely need sense
-# the db.sqlite3 database that is created with djangos project is always reset after posting edits or anything from the project to heroku sense that 
+# the db.sqlite3 database that is created with djangos project is always reset after posting edits or anything from the project to heroku sense that
 # database is part of the backend itself and whatever data is stored in that database locally is set to the db.sqlite3 database with heroku every time
 # herokus backend project is edited.
 # Get the postgresql databases credentials from heroku by going to settings in heroku selecting reveal config vars and there will be only 1 config var
@@ -85,11 +85,11 @@
 #             USER: ends at the :                     PASSWORD: password ends before the @                        HOST: begins after the @           PORT:    NAME:
 # postgres://eytyiydjlrxgybr:6a56404j59gk40f92b388dd588asdfasdj35kj7g4fikf9850412b83e7das0811059gjrk68b572@ec2-31-393-296-32.compute-1.amazonaws.com:5432/d39qyrjjkifgao
 # the postgresql database credentials in settings.py are set up like the example bellow there:
-# DATABASES = { 
+# DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'd39qyrjjkifgao',
-#         'HOST': 'ec2-31-393-296-32.compute-1.amazonaws.com', 
+#         'HOST': 'ec2-31-393-296-32.compute-1.amazonaws.com',
 #         'PORT': 5432,
 #         'USER': 'eytyiydjlrxgybr',
 #         'PASSWORD': '6a56404j59gk40f92b388dd588asdfasdj35kj7g4fikf9850412b83e7das0811059gjrk68b572'
@@ -97,8 +97,8 @@
 # }
 # Your backend and database are now fully setup with heroku and ready to start being used from the internet like a fucking pro I thin.!.!.!.!...!.
 
-# Lets start the django projects local server with py manage.py runserver. If you are making the django app for a react native project you need to add  
-# your computers IP address to the end of the command. React native won't run with a local server and need your computers IP address instead.  
+# Lets start the django projects local server with py manage.py runserver. If you are making the django app for a react native project you need to add
+# your computers IP address to the end of the command. React native won't run with a local server and need your computers IP address instead.
 # The computer IP address of yours is in wifi settings. Mine is 192.168.10.44, but it needs :8000 at the end of the IP address. Which might look
 # like py manage.py runserver 192.168.10.44:8000. After this the server will be running on http://192.168.10.44:8000/ if your using the IP address
 # or else if your using plain local host to host the server it'll be at http://127.0.0.1:8000/
