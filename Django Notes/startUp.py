@@ -97,7 +97,7 @@
 
 # Now with the virtual environment activated lets install django so we can create a super user with pip install django
 
-# The rest_framework side of django, literally eveything we need for the backend, isn't going to work endless we install it.
+# The rest_framework side of django, literally everything we need for the backend, isn't going to work endless we install it.
 # Install it with this pip install djangorestframework. With djangorestframework installed you'll need to now add 'rest_framework' to installed
 # apps in order for it to work inside settings 
 

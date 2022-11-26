@@ -1,7 +1,7 @@
 # The admin.py file is where you add your models that you want to be accessed by the admins to the admin site and configure them for the 
 # admin site so that you can edit or delete the objects created by the models that are added.
 from django.contrib import admin # This is all the admin tools that are needed here.
-from .models import Article # Importing the models that we'll configure for the admin site.
+from .models import * # Importing the models that we'll configure for the admin site.
 
 admin.site.register(Article) # Everything we need to add a model to the admin site so that we can create, edit, or delete any data that's made with this model class.
 
