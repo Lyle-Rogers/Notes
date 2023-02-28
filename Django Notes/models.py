@@ -85,9 +85,8 @@ class Article(models.Model):
         models.IntegerField()
     )  # This is an integer field with an integer validator. An integer is a number if your still new here.
     earths_location_in_space = models.FloatField(
-        blank=True, null=True
-    )  # This is an integer field that rounds the decimal values given to a float field. A decimal number is a none whole number with a . and a float number is a decimal rounded off to it's closest whole number. I never knew that.
-
+        max_digits=19, decimal_places=7, blank=True, null=True
+    )  # Integer field capable of using decimals like 7.99 
 
 # I'm pretty sure that's every model class field in django and everything else you can do with it as well. If you understand this you just might be an upcoming django master.
 

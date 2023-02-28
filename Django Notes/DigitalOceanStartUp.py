@@ -57,6 +57,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") # A directory that stores th
 # DATABASE_URL = ${db.DATABASE_URL} # If your database isn't db then name this something else
 # DJANGO_SECRET_KEY = Generate a random secret key with a terminal command you'l find in the digitalocean tutorial bellow and select encrypt for that environment variable.
 
+# generate django secret key in the terminal with this. This is for digital oceans password and secret key environment variables:
+# python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+
 # HTTP Request Routes:
 # /
 

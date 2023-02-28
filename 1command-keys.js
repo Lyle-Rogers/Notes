@@ -50,9 +50,25 @@
 // ctrl + tab: will show a list of your open vs code tabs and you can then navigate through them with
 // the down and up keys. A tip: Keep on holding ctrl and then click enter to split that tab to the right.
 
-// ctrl + enter: Creates a new line at the bottom of the line that is active.
-
 // ctrl + d: With a highlighted word to highlight all the similar words in that file and edit all of
 // them at the same time.
 
 // ctrl + shift + arrow key: Will highlight the word in the arrows direction.
+
+// ctrl + enter: Will start a new line under the current line.
+
+// ctrl + shift + enter: will start a new line on top of the line.
+
+// ctrl + shift + i: Inspect a website in the browser.
+
+// ctrl + shift + `: Will open the visual studio code terminal.
+
+// ctrl + `: Will close the visual studio code terminal.
+
+// ctrl + shift + esc: Will open the task manager and you can close any program from there!
+
+// ctrl + {: Line will tab backwards
+
+// ctrl + }: Line will tab forwards
+
+// windows key + up or down: will take a window out or put it in fullscreen.

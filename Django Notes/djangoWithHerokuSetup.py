@@ -9,7 +9,8 @@
 # py manage.py migrate: will migrate the already set up migrations for the users and whatever.
 
 # pip install whitenoise: white noise handelse the backends static files for heroku development and is needed because django is not already
-# set up to handle static files in production but is preconfigured for the development part.
+# set up to handle static files in production but is preconfigured for the development part. It also stops an error from happening if django-cors-headers 
+# is implemented because it will block static files from being served in development
 
 # add whitnoise 'whitenoise.middleware.WhiteNoiseMiddleware' middleware in the settings.py middleware list above all other middleware
 #  except for the security middleware.

@@ -50,3 +50,6 @@ import LottieView from "lottie-react-native";
   autoPlay // puts the animation on autoplay
   loop // loops the animation and doesn't stop until infinity itself ends
 />;
+
+// The maverick quest solutions website loading circle lottie!
+// https://lottiefiles.com/93789-circle-loading-animation-dark
