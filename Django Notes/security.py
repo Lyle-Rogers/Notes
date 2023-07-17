@@ -41,8 +41,6 @@ class UserStatsView(APIView):
 
 
 
-
-
 # Throttling allows a user to only send a specific amount of requests. This is for registering and 
 # similar things. It makes it so that a user can't just write a script that can create users and then 
 # create thousands of users a second. Throttling is already installed for django.
