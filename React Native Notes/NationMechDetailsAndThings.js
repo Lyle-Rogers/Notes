@@ -1130,6 +1130,16 @@ export const AScreen = ({ navigation }) => {
   return;
 };
 
+// useState's function to stop a race condition when multi calling or using and await condition:
+setState((prevState) => {
+  return { ...prevState, [name]: value };
+});
+
+// or
+
+setState((prevState) => prevState + 3);
+// This insures that a race condition will never happen when calling setState multiple times simultaneously.
+
 // This can test mobile apps on any general device and is kinda free.
 // https://app.lambdatest.com/console/realtime/app
 

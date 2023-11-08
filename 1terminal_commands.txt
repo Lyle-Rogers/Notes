@@ -45,6 +45,6 @@ code .: Opens VS Code inside the directory that you are cerently in.
 Get-ChildItem -Path Env:\: This is how to check every user variable and their corresponding paths
 in your computers system. This is an extremely helpful command!
 
-
+ipconfig: In any directory can show you all your ip addresses. If your current IP address is getting rejected with django you can get a better one here.
 
 

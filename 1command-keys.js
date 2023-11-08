@@ -53,6 +53,8 @@
 // ctrl + d: With a highlighted word to highlight all the similar words in that file and edit all of
 // them at the same time.
 
+// alt + down or up: will move the line your on up or down. and you can place it anywhere else in the file.
+
 // ctrl + shift + arrow key: Will highlight the word in the arrows direction.
 
 // ctrl + enter: Will start a new line under the current line.

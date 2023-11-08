@@ -40,6 +40,9 @@
 // https://lottiefiles.com/47956-area-map
 // https://lottiefiles.com/282-search-a-location
 
+// lottie animated wifi off:
+// https://app.lottiefiles.com/animation/eabf101b-e143-44a9-b7da-56324f2782c6
+
 // install npm i lottie-react-native to use lottie animations with react native
 // download the lottie animation you'd like and rename and add it to the assets folder and import it inside the lottie view
 // if the lottie view is not inside a view with width and height defined, it will not be shown
