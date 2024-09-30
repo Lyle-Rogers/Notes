@@ -1119,6 +1119,7 @@ export const AScreen = ({ navigation }) => {
 
   // When navigation is updated with new data from any screen, this checks if
   // the new data says that if this screen is focused or not and to do this if it is!
+  // It checks if the current screen is in focus or not!
   useEffect(() => {
     const refreshOnFocus = navigation.addListener("focus", () =>
       AnApiCallThatRetrievesNewData(),
@@ -1139,6 +1140,21 @@ setState((prevState) => {
 
 setState((prevState) => prevState + 3);
 // This insures that a race condition will never happen when calling setState multiple times simultaneously.
+
+// Change the navigation bar color for android by adding this line in android/app/src/main/res/values/styles.xml
+
+{
+  /* <resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
+        <item name="android:navigationBarColor">#000000</item> // This line. And change the color then restart the app with npm run android!
+    </style>
+
+</resources> */
+}
 
 // This can test mobile apps on any general device and is kinda free.
 // https://app.lambdatest.com/console/realtime/app
