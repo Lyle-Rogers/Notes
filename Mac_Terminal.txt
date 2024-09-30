@@ -1,0 +1,60 @@
+cd a/directory: Will change the directory.
+
+cd ..: Back 1 directory.
+
+cd ~: Short cut to the home/original directory.
+
+say words: Will make mac say anything I want!
+
+pwd: Will print the working directory.
+
+open A/Directory: Will open that directory outside the terminal.
+
+ls: Lists the directories available in your directory.
+
+clear: Clears the screen by pushing your previous prompts up, and command k, will actually delete your previous terminal.
+
+touch file.txt: Creates a file named file.txt
+
+nano fileName.txt: Opens the file editor in the terminal for that file.
+
+history: Shows your terminals history and its commands.
+
+rm file_name.txt: Removes the file, or rm -r a/directory for a directory. Items will not be sent to trash.
+
+mkdir directory_name: Creates that directory with that name.
+
+command + space: Opens the spotlight to search mac. Easy to open apps.
+
+security find-generic-password -wa "INFINITUM0018": Will give u the wifi password to that wifi name, if you were connected once.
+
+any command | pbcopy: Will copy the commands output.
+
+caffeinate: Ass long as your terminal is open, the mac will stay awake. Ctrl + c to quite it.
+
+bash: Switch to the bash termianl, and zsh, to switch back to the zsh terminal.
+
+command + shift + 3: Screenshot.
+
+command + shift + 4: A selective screenshot.
+
+defaults write com.apple.screencapture type jpg: Will change the default screenshot file type to jpg instead of png, or any file 
+type you like.
+
+defaults write com.apple.screencapture location ~/Desktop/Screenshots: Will change the locatoin your screenshots are saved by default. 
+That location has to first exist.
+
+whoami: Tells u who u are. Not a freak!
+
+df -h: Check how much memory is left on your harddrive.
+
+ping awebsite.net: See if a website is working, (or ping it). If it responds, it works, at least supposedly. ctrl + c, quites.
+
+ifconfig en0 | grep inet | awk '{ print $2 }': Will check your ip address.
+
+man thenAnyCommandAtAll: To figure out what that command is, then q to quite.
+
+ps -ax: Can see all the processes running on your computer. Putentially useless?
+
+top -o rsize: To see which processes are using your memory, with -o rsize just to filter by the memory size.
+
