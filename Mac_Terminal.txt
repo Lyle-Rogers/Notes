@@ -58,3 +58,24 @@ ps -ax: Can see all the processes running on your computer. Putentially useless?
 
 top -o rsize: To see which processes are using your memory, with -o rsize just to filter by the memory size.
 
+kill -9 processesId: This can kill any running processes. To find a processes id, run ps -ax | grep processesName. Find the name under the 
+commands list when running top or top -o rsize. When running the command with the terminal processes name, eg: ps -ax | grep terminal, it 
+gives me this output, 9627 ttys001    0:00.00 grep terminal, with 9627 as the process id for the terminal. This command doesn't work for me 
+as the process id of any process keeps changing. Maybe if I do it fast enough it could work.
+
+uptime: See how long your mac has been awake.
+
+leave 230: Sets a terminal alarm that tells u to leave at 230. Incase you've been in the terminal for to long, or just want an alarm.⏰
+
+sudo spctl --master-disable: This disables gate keeper, the thing that keeps you from installing apps that you want to install!
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)": This installs homebrew, the hidden package 
+manager for mac.
+
+brew install cmatrix: After that, enter cmatrix, then watch what happens, do it, do it, please! Take that red pill Neo. And ctrl + c to quite.
+
+brew install asciiquarium: Similar to the cmatrix, and ctrl + c to quite. Just do it. Write asciiquarium to enter in.
+
+tetris: Play tetris in the terminal. That was abviously a thing! Install it with: brew install samtay/tui/tetris. And esc to quite it!
+
+shutdown -h now: Shuts your mac down, and shutdown -r now, restarts!
