@@ -19,7 +19,7 @@ pip install djangorestframework: Installs django's rest framework.
 
 virtualenv env: Creates a virtual environment. Run this before the bottom command or it won't work.
 
-.\env\Scripts\activate: Activates the virtual environment. Whatever tf that means. Wait I actually might know. But 
+.\env\scripts\activate: Activates the virtual environment. Whatever tf that means. Wait I actually might know. But 
 run this before running any django commands or it will through an error. This runs after the top command.
 
 deactivate: deactivates the virtual environment and the env at the beggining will disappear.
@@ -34,8 +34,6 @@ I think this adds every dependencies installed on the computer the requirements.
 py manage.py runserver: Runs the back end server.
 
 pip install -r requirements.txt: Installs the dependencies in the backends requirements.txt file.
-
-pip install --upgrade pip: I think this updates pip for you.
 
 py manage.py shell: Opens the python shell so that you can use python functions like creating and deleting that data that runs with the backend.
 
