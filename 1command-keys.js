@@ -63,9 +63,9 @@
 
 // ctrl + shift + i: Inspect a website in the browser.
 
-// ctrl + shift + `: Will open the visual studio code terminal.
+// ctrl + shift + `: Will create a new terminal tab in the terminal, and open it if it's closed.
 
-// ctrl + `: Will close the visual studio code terminal.
+// ctrl + `: Will close and open the visual studio code terminal.
 
 // ctrl + shift + esc: Will open the task manager and you can close any program from there!
 
